@@ -1,0 +1,2785 @@
+{
+  "schema_version": "1.0",
+  "category_id": "GJ",
+  "category": "格局判定",
+  "source_work": "三命通会（知命书院转录本·未经影印本校对）",
+  "generated": "2026-10-28",
+  "description": "总则、正官格、偏官七煞格、建禄格、从格专旺、常用正格、外格。",
+  "levels": {
+    "原文": "转录本有明确文字表述",
+    "通行-需注": "古籍未明言或文字残缺，按通行惯例补全，输出须注明",
+    "推定": "由原文表格/定义推导，非原文逐字",
+    "待核": "转录矛盾/形近讹误，未核对影印本，禁止加载"
+  },
+  "gates": "engine.loadable=false 的规则不得被排盘引擎加载；待核项须先完成校勘。",
+  "count": 87,
+  "rules": [
+    {
+      "id": "GJ-001",
+      "title": "六格为重、月令为用",
+      "rule": "十八格取六格（正官、偏官、正财、偏财、正印、偏印/食伤等六格）为重，仍以月令为用。",
+      "when": [
+        "取格"
+      ],
+      "then": [
+        "优先按六格归类，并以月令定用"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷十.md#R10.9",
+        "file_no": "099",
+        "material": "materials/05-三命通会/三命通会-知命书院本/099-卷10（01）看命口诀（1）.md",
+        "quote": "十八格取六格为重，仍以月令为用",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "总则"
+    },
+    {
+      "id": "GJ-002",
+      "title": "取用六法",
+      "rule": "六法：逢官看财、逢煞看印、逢印看官；生克制化为上，破害休因为下。",
+      "when": [
+        "格局取用"
+      ],
+      "then": [
+        "按六法检查配套十神"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷十.md#R10.8",
+        "file_no": "099",
+        "material": "materials/05-三命通会/三命通会-知命书院本/099-卷10（01）看命口诀（1）.md",
+        "quote": "逢官看财、逢煞看印、逢印看官；生克制化为上，破害休因为下",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "总则"
+    },
+    {
+      "id": "GJ-003",
+      "title": "论财官与论格局分工",
+      "rule": "子平法专论财官，月上财官为紧要，发觉在日时；论财官不论格局，论格局不论财官；入格非富即贵，不入格非贫即夭。",
+      "when": [
+        "判命"
+      ],
+      "then": [
+        "先定讨论路径：论财官或论格局，不混用"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷十.md#R10.10",
+        "file_no": "104",
+        "material": "materials/05-三命通会/三命通会-知命书院本/104-卷10（02）巫咸撮要（1）.md",
+        "quote": "论财官不论格局，论格局不论财官；入格非富即贵，不入格非贫即夭",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "总则"
+    },
+    {
+      "id": "GJ-004",
+      "title": "格数多少断",
+      "rule": "一格二格非卿即相；三格四格财官不纯，非刑卒即九流。",
+      "when": [
+        "统计成格数量"
+      ],
+      "then": [
+        "一格二格主贵；三四格主杂"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷十.md#R10.11",
+        "file_no": "104",
+        "material": "materials/05-三命通会/三命通会-知命书院本/104-卷10（02）巫咸撮要（1）.md",
+        "quote": "一格二格，非卿即相；三格四格，财官不纯",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "总则"
+    },
+    {
+      "id": "GJ-005",
+      "title": "以日为主、先辨本象化象",
+      "rule": "推命以日为主，先辨日干本象与化象（如甲本象木、化象土），再及坐支、月气。",
+      "when": [
+        "开局判命"
+      ],
+      "then": [
+        "先定日干本象/化象，再论坐支与月令"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷十.md#R10.12",
+        "file_no": "106",
+        "material": "materials/05-三命通会/三命通会-知命书院本/106-卷10（03）玉井奥诀（1）.md",
+        "quote": "推命以日为主，先辨日干本象与化象",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "总则"
+    },
+    {
+      "id": "GJ-010",
+      "title": "正官定义与一位原则",
+      "rule": "正官＝甲见辛、乙见庚（阴阳配合、相制有用）；正官为六格之首，止许一位，多则不宜。",
+      "when": [
+        "日干见他干为正官"
+      ],
+      "then": [
+        "作正官格；一位为贵，多则减分"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.91",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "正官为六格之首，止许一位，多则不宜",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-011",
+      "title": "正气官月表",
+      "rule": "正气官月：甲酉、乙申巳、丙子、丁亥、戊卯、己寅、庚午、辛寅巳、壬午未丑、癸辰巳戌。",
+      "when": [
+        "查月令正官"
+      ],
+      "then": [
+        "按表取月支；与禄旺不合者须校勘"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.92",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "若甲日生酉月、乙生申巳、丙生子、丁生亥……则为正气官星",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": {
+        "甲": [
+          "酉"
+        ],
+        "乙": [
+          "申",
+          "巳"
+        ],
+        "丙": [
+          "子"
+        ],
+        "丁": [
+          "亥"
+        ],
+        "戊": [
+          "卯"
+        ],
+        "己": [
+          "寅"
+        ],
+        "庚": [
+          "午"
+        ],
+        "辛": [
+          "寅",
+          "巳"
+        ],
+        "壬": [
+          "午",
+          "未",
+          "丑"
+        ],
+        "癸": [
+          "辰",
+          "巳",
+          "戌"
+        ]
+      },
+      "group": "正官格",
+      "notes": "2026-10-28 与劝学网本互校：两本同文，非单本讹字。疑点解除——判定基准是『官星（非日主）的禄与生旺位』：乙官庚禄申、长生于巳；辛官丙禄巳、长生于寅；壬官己禄午、王相于未丑；癸官戊禄巳、见旺于辰戌。表可编码。"
+    },
+    {
+      "id": "GJ-012",
+      "title": "正官成格条件",
+      "rule": "支藏干透、余位不再见、日主健旺、财印两扶、不见伤煞、行运引至官乡，则大富大贵。",
+      "when": [
+        "月令为正官"
+      ],
+      "then": [
+        "六条件齐备作大贵论；缺一减分"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.93",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "日主健旺、得财印两扶、柱中不见伤煞、行运引至官乡，则大富大贵",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-013",
+      "title": "正官破格",
+      "rule": "正官见刑冲破害、伤官七煞、贪合忘官、劫财分福，则为破格；如甲生酉月见卯冲、酉刑、午破、戌害、丙合、乙劫、丁伤、庚杂。",
+      "when": [
+        "月令正官格"
+      ],
+      "then": [
+        "见任一破格因素即降格/破格"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.94",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "若正官见刑冲破害、伤官七煞、贪合忘官、劫财分福，则为破格",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-014",
+      "title": "官星多寡与身强弱",
+      "rule": "官星结局有财资扶，非行身旺地不发；官止一二无财有印，身弱无妨；财官满目身弱不胜，运至财煞旺乡多痨瘵，七煞复遇为徒流；官一位为贵人、多则成败、四位纯官仅虚名。",
+      "when": [
+        "正官格且官星数量/身强弱不同"
+      ],
+      "then": [
+        "按多寡与身强弱分别断"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.95；精读-卷十.md#R10.4",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "官止一二、无财有印，则身弱无妨",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-015",
+      "title": "取官不必专泥月令",
+      "rule": "取官不必专泥月令支辰：或月干、或年日时支干，只一处有、不曾损伤，皆可取用；明干有气明干取，明干无气暗中取；引归地支有助托、运行得地，亦不减月内官星之福。",
+      "when": [
+        "月令无正官或需比较他柱官星"
+      ],
+      "then": [
+        "按明干→暗藏顺序取官"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.97",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "明干有气明干取，明干无气暗中取",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-016",
+      "title": "正官格行运喜忌",
+      "rule": "正官格要行印乡（逢官看印）；身弱印轻补印，身旺官轻补官；行伤官运为背禄，行身旺运为逐马。",
+      "when": [
+        "正官格行运"
+      ],
+      "then": [
+        "行印乡/官乡为吉；伤官运背禄、身旺运逐马"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.99",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "正官格则要行印乡（逢官看印）……行伤官运即背禄，行身旺运即逐马",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-017",
+      "title": "天官乡",
+      "rule": "月干制岁干为天官乡：甲癸人在午未，乙丙人在辰巳，丁戊人在寅卯，己庚人在戌亥，辛壬人在申酉。",
+      "when": [
+        "月干能制年干且命支符合"
+      ],
+      "then": [
+        "为天官乡，主贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.101",
+        "file_no": "039",
+        "material": "materials/05-三命通会/三命通会-知命书院本/039-卷05（01）（1）.md",
+        "quote": "取月干制岁干",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-018",
+      "title": "地官乡",
+      "rule": "岁干甲乙木，七八月申金制之：甲乙申酉、丙丁亥子、戊己寅卯、庚辛巳午、壬癸辰戌丑未。",
+      "when": [
+        "月支能制年干"
+      ],
+      "then": [
+        "为地官乡，主贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.102",
+        "file_no": "040",
+        "material": "materials/05-三命通会/三命通会-知命书院本/040-卷05（01）（2）.md",
+        "quote": "地官乡：岁干甲乙木，七八月申金制之",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-019",
+      "title": "岁德正官",
+      "rule": "年上干支为官，喜忌同月令正官；年干遇官福气最重、发达必早。",
+      "when": [
+        "年柱见正官"
+      ],
+      "then": [
+        "按岁德正官论，福重早发"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.107",
+        "file_no": "041",
+        "material": "materials/05-三命通会/三命通会-知命书院本/041-卷05（02）.md",
+        "quote": "岁德正官：年上干支官，喜忌同月令正官",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-020",
+      "title": "时上正官",
+      "rule": "时上正官：甲日酉辛时、乙日申庚时；力轻微，晚年发福或生贤子，要有印助。",
+      "when": [
+        "时柱见正官"
+      ],
+      "then": [
+        "按力轻晚发论，须印助"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.108",
+        "file_no": "041",
+        "material": "materials/05-三命通会/三命通会-知命书院本/041-卷05（02）.md",
+        "quote": "时上正官……力轻微，晚年发福或生贤子，要有印助",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-021",
+      "title": "官印禄库",
+      "rule": "官印禄库：甲乙乙丑、丙丁庚午、戊己壬辰、庚辛乙未、壬癸丙戌。",
+      "when": [
+        "日干与月支符合"
+      ],
+      "then": [
+        "为官印禄库，主贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.109",
+        "file_no": "041",
+        "material": "materials/05-三命通会/三命通会-知命书院本/041-卷05（02）.md",
+        "quote": "官印禄库：甲乙乙丑、丙丁庚午、戊己壬辰、庚辛乙未、壬癸丙戌",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "正官格"
+    },
+    {
+      "id": "GJ-030",
+      "title": "偏官定义：有制为偏官、无制为七煞",
+      "rule": "偏官＝甲见庚、乙见辛；隔七位相克战故为七煞；有制为偏官，无制为七煞。",
+      "when": [
+        "日干见他干为偏官"
+      ],
+      "then": [
+        "有制按偏官、无制按七煞论"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.111",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "有制为偏官，无制为七煞",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-031",
+      "title": "偏官成格四要素",
+      "rule": "偏官成格四要素：日主健旺＋印绶助化；身强煞弱有财；食神透制；阳刃配合。",
+      "when": [
+        "偏官格"
+      ],
+      "then": [
+        "按四要素检查成格"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.112",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "偏官成格四要素：日主健旺＋印绶助化；身强煞弱有财；食神透制；阳刃配合",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-032",
+      "title": "身强煞弱与身弱煞强",
+      "rule": "身强煞弱有财则吉；身弱煞强有财则引鬼盗气，非贫则夭。",
+      "when": [
+        "偏官格身煞强弱不同"
+      ],
+      "then": [
+        "身强煞弱吉；身弱煞强凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.113",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "身强煞弱有财则吉；身弱煞强有财则引鬼盗气，非贫则夭",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-033",
+      "title": "制伏数量",
+      "rule": "七煞止一而制伏二三处，喜行煞旺地；运再制则尽法无民。",
+      "when": [
+        "七煞制伏多处"
+      ],
+      "then": [
+        "喜煞旺运；再制过度为凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.114",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "七煞止一而制伏二三处，喜行煞旺地；运再制则尽法无民",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-034",
+      "title": "原有制伏与煞出",
+      "rule": "原有制伏则煞出为福；原无制伏则煞出为祸。",
+      "when": [
+        "岁运煞透"
+      ],
+      "then": [
+        "原局有制为福，无制为祸"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.115",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "原有制伏煞出为福，原无制伏煞出为祸",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-035",
+      "title": "年干露煞",
+      "rule": "年干露煞最重：甲庚年、乙辛年，生申酉丑月、金多、大运金乡、流年并见则凶甚；生寅午戌木旺月，火制身强则金绝不能为害。",
+      "when": [
+        "年干透七煞"
+      ],
+      "then": [
+        "按月令金木旺衰与制化判轻重"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.116",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "年干露煞最重",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-036",
+      "title": "月支偏官一位原则",
+      "rule": "月支偏官只许一位，多则不佳；四柱纯煞有制为一品；略见正官则混杂反贱。",
+      "when": [
+        "月支偏官"
+      ],
+      "then": [
+        "一位为贵；多或见正官混杂则减"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.117",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "月支偏官只许一位，多则不佳；四柱纯煞有制为一品；略见正官则混杂反贱",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-037",
+      "title": "煞印相生",
+      "rule": "煞不离印、印不离煞，煞印相生功名显达；有煞无印欠文彩，有印无煞欠威风。",
+      "when": [
+        "偏官格见印"
+      ],
+      "then": [
+        "煞印相生为吉；偏缺则减"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.119",
+        "file_no": "043",
+        "material": "materials/05-三命通会/三命通会-知命书院本/043-卷05（04）论偏官.md",
+        "quote": "煞不离印、印不离煞，煞印相生功名显达",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-038",
+      "title": "天元坐煞",
+      "rule": "天元坐煞：甲申、乙酉等日；喜日干倚旺、印化煞、财旺身旺、伤官合制；忌明见丙丁、生秋月、官煞复克、再行煞运。",
+      "when": [
+        "日柱坐七煞"
+      ],
+      "then": [
+        "按喜忌检查"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.120",
+        "file_no": "044",
+        "material": "materials/05-三命通会/三命通会-知命书院本/044-卷05（05）.md",
+        "quote": "天元坐煞：甲申、乙酉等日",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-039",
+      "title": "时上一位贵",
+      "rule": "时上一位贵：时干透煞只一位；喜身强、阳刃冲刑、制多行煞旺运、有财有印；忌年月日重见、身弱、制伏二三重、正官相混。",
+      "when": [
+        "时干透七煞一位"
+      ],
+      "then": [
+        "按喜忌判贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.121",
+        "file_no": "044",
+        "material": "materials/05-三命通会/三命通会-知命书院本/044-卷05（05）.md",
+        "quote": "时上一位贵：时干透煞只一位",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-040",
+      "title": "年上七煞",
+      "rule": "年上七煞：岁煞一位不宜制，四柱重见却宜制；喜日主健旺、羊刃合、柱带财、行财运；忌身衰、煞旺冲刑、制伏太过、官煞混杂。",
+      "when": [
+        "年干透七煞"
+      ],
+      "then": [
+        "一位不制、重见宜制；按喜忌判"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.122",
+        "file_no": "044",
+        "material": "materials/05-三命通会/三命通会-知命书院本/044-卷05（05）.md",
+        "quote": "年上七煞：岁煞一位不宜制，四柱重见却宜制",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-041",
+      "title": "官煞混杂",
+      "rule": "官煞混杂只取财印为用；身强胜任其财方可；身弱官煞混多夭贫；身旺有制亦好，无制成印局化煞亦可。",
+      "when": [
+        "四柱官煞并见"
+      ],
+      "then": [
+        "取财印为用；按身强弱判吉凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.123",
+        "file_no": "044",
+        "material": "materials/05-三命通会/三命通会-知命书院本/044-卷05（05）.md",
+        "quote": "官煞混杂：只取财印为用",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-042",
+      "title": "弃命从煞",
+      "rule": "弃命从煞：煞重身无所归，四柱无比肩印绶；要行煞旺及财乡；忌运扶身旺与煞为敌。从煞刚柔：阴干从地支煞纯多贵，阳干从亦贵但次之；水火金土皆从，惟阳木不能从。",
+      "when": [
+        "煞重身无归、无比肩印绶"
+      ],
+      "then": [
+        "作从煞格，行煞旺财乡；阳木不从"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.125-R3.126",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "弃命从煞……惟阳木不能从",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-043",
+      "title": "官煞去留",
+      "rule": "官煞交差，有物去官留煞则以偏官论，有物去煞留官则以正官论；天干透者易去、月支藏者难去；须食伤去官煞之物众而有力。",
+      "when": [
+        "官煞并见且有去留之物"
+      ],
+      "then": [
+        "按去官留煞/去煞留官定格局"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.127",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "有物去官留煞则以偏官论，有物去煞留官则以正官论",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-044",
+      "title": "五阳五阴食伤去留差异",
+      "rule": "五阳日食神能去煞又能留官；五阳日伤官只能去官不能留煞，须羊刃合方成去官留煞。五阴日食神能去煞不能留官（日主自留）；五阴日伤官能去官又能留煞。",
+      "when": [
+        "日干阴阳与食伤类型不同"
+      ],
+      "then": [
+        "按阳/阴日食神/伤官分别判去留"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.128-R3.129",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "五阳日食神能去煞又能留官……五阴日伤官能去官又能留煞",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-045",
+      "title": "合煞二义",
+      "rule": "合煞二义：合来为去官留煞，合去为去煞留官；合官星不为贵、合七煞不为凶；日主亲合则合官为贵、合煞为贱。",
+      "when": [
+        "官煞有合"
+      ],
+      "then": [
+        "按合来/合去判去留吉凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.130",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "合来为去官留煞，合去为去煞留官",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-046",
+      "title": "官煞两停",
+      "rule": "官煞两停：有生扶会和者力专宜存，有破损伤害者力散宜弃；两停俱无扶合有破害则取有力一字为用；两停俱有扶合无破害则为混杂反贫贱。四位官四位煞：明者用、藏者舍；两停无轻重则取生助向时者、弃背时无助者。",
+      "when": [
+        "官煞力量相当"
+      ],
+      "then": [
+        "按扶合/破害与向时定取舍"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.131-R3.132",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "官煞两停：有生扶会和者力专宜存，有破损伤害者力散宜弃",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-047",
+      "title": "贪合忘官",
+      "rule": "干支明暗重重相合、有情贪恋，则财来盗气、官来克身，官不成财不遂；凶神合去反凶为吉，吉神合去反吉为凶。",
+      "when": [
+        "官星被合"
+      ],
+      "then": [
+        "按贪合忘官论；吉神被合反凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.134",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "贪合忘官……吉神合去反吉为凶",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-048",
+      "title": "专禄要制",
+      "rule": "专禄要制：六庚日见巳时，柱要壬癸制丙，为武帅持权；逢煞运不吉。",
+      "when": [
+        "庚日巳时且柱见丙"
+      ],
+      "then": [
+        "须壬癸制丙；逢煞运不吉"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.124",
+        "file_no": "045",
+        "material": "materials/05-三命通会/三命通会-知命书院本/045-卷05（06）.md",
+        "quote": "专禄要制：六庚日见巳时，柱要壬癸制丙",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "偏官七煞"
+    },
+    {
+      "id": "GJ-050",
+      "title": "建禄格总则",
+      "rule": "月令建禄，难招祖业、见财不聚、却病少寿长；再见比肩则克妻妨父损子；财官喜透天，不宜身再旺。",
+      "when": [
+        "月令为日干建禄"
+      ],
+      "then": [
+        "按建禄格论；喜财官透，忌比肩重"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.43、R6b.58",
+        "file_no": "061",
+        "material": "materials/05-三命通会/三命通会-知命书院本/061-卷06(14)（2）.md",
+        "quote": "若月令建禄，则难招祖业、见财不聚、却病少寿长；再见比肩，则克妻妨父损子",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "建禄格"
+    },
+    {
+      "id": "GJ-051",
+      "title": "建禄无财官与有财官",
+      "rule": "建禄别无财官、再遇劫夺则多贫贱；宜时带偏官偏财或食神。建禄元有财官、引旺得地，则官运贵、财运富、财官俱旺则富贵。时逢财库、运至财乡则晚年大富；年上财官有助则享祖荫；元无财官则行财运亦虚花。",
+      "when": [
+        "建禄格有无财官不同"
+      ],
+      "then": [
+        "无财官宜时带偏官偏财食神；有财官行旺地则富贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.44-R6b.46",
+        "file_no": "061",
+        "material": "materials/05-三命通会/三命通会-知命书院本/061-卷06(14)（2）.md",
+        "quote": "建禄而别无财官、再遇劫夺，则多贫贱；宜时带偏官偏财或食神",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "建禄格"
+    },
+    {
+      "id": "GJ-052",
+      "title": "建禄见煞取贵",
+      "rule": "建禄各干见指定煞时（乙卯辛巳、丙巳己亥、丁午庚子、戊巳甲寅、己午乙丑、庚申丙戌、辛酉丁酉、壬亥戊申、癸子己未），则见煞取贵；煞多则岁运再逢主夭折。",
+      "when": [
+        "建禄格见指定煞"
+      ],
+      "then": [
+        "见煞取贵；煞多再逢主夭"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.57",
+        "file_no": "061",
+        "material": "materials/05-三命通会/三命通会-知命书院本/061-卷06(14)（2）.md",
+        "quote": "建禄各干见指定煞时……则见煞取贵；煞多则岁运再逢主夭折",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": {
+        "乙卯": "辛巳",
+        "丙巳": "己亥",
+        "丁午": "庚子",
+        "戊巳": "甲寅",
+        "己午": "乙丑",
+        "庚申": "丙戌",
+        "辛酉": "丁酉",
+        "壬亥": "戊申",
+        "癸子": "己未"
+      },
+      "group": "建禄格"
+    },
+    {
+      "id": "GJ-053",
+      "title": "建禄行运",
+      "rule": "建禄格行运：财官旺地则发；岁元无财官则虽遇财官吉运，发福不大（『根在苗先』）。",
+      "when": [
+        "建禄格行运"
+      ],
+      "then": [
+        "按原局有无财官判发福大小"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.45-R6b.47",
+        "file_no": "061",
+        "material": "materials/05-三命通会/三命通会-知命书院本/061-卷06(14)（2）.md",
+        "quote": "若岁元无财官，则虽遇财官吉运，发福不大",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "建禄格"
+    },
+    {
+      "id": "GJ-054",
+      "title": "建禄与比肩阳刃同气",
+      "rule": "阳刃、比肩、败财、建禄同气：支曰刃禄、干曰比劫，取用大略相同。",
+      "when": [
+        "判建禄/比肩/阳刃类格"
+      ],
+      "then": [
+        "按同一类取用，区分支/干"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.60",
+        "file_no": "061",
+        "material": "materials/05-三命通会/三命通会-知命书院本/061-卷06(14)（2）.md",
+        "quote": "阳刃、比肩、败财、建禄同气：支曰刃禄、干曰比劫",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "建禄格"
+    },
+    {
+      "id": "GJ-060",
+      "title": "曲直格",
+      "rule": "甲乙日得亥卯未局且柱有亥带印则曲直入格；曲直无亥须见金土为贵，无亥无金土则不秀不实。",
+      "when": [
+        "甲乙日、亥卯未全、柱有亥"
+      ],
+      "then": [
+        "曲直格；无亥须金土"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.40-R6a.41",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "若甲乙日得亥卯未局且柱有亥带印则曲直入格",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-061",
+      "title": "炎上格",
+      "rule": "丙丁日遇寅午戌局且柱有寅带印则炎上入格；炎上无寅止九流近贵，无亥水相济不贵；忌辰丑戊己晦火、忌水金乡与冲。",
+      "when": [
+        "丙丁日、寅午戌全、柱有寅"
+      ],
+      "then": [
+        "炎上格；无寅减等；忌水金冲"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.42-R6a.43",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "若丙丁日遇寅午戌局且柱有寅带印则炎上入格",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-062",
+      "title": "从革格",
+      "rule": "辛日见巳酉丑局，须带丙丁巳午一二位方成器，不可火多；辛巳辛酉辛丑三日忌五月生，宜八月或水土养食印。",
+      "when": [
+        "辛日、巳酉丑全、带丙丁巳午"
+      ],
+      "then": [
+        "从革成器；火多则伤"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.44-R6a.45",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "若辛日见巳酉丑局须带丙丁巳午一二位方成器，不可火多",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-063",
+      "title": "润下格",
+      "rule": "壬癸日见申子辰全则润下；忌卯巳死绝、三刑四冲。润下须土神一两位为堤岸，怕会木凶，木伤土要金印救；运喜西忌东南。",
+      "when": [
+        "壬癸日、申子辰全"
+      ],
+      "then": [
+        "润下格；须土堤岸，忌木冲"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.46-R6a.47",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "若壬癸日见申子辰全则润下；忌卯巳死绝、三刑四冲",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-064",
+      "title": "稼穑格",
+      "rule": "戊己生逢四季月则稼穑；喜一木为官、木多则土虚；巳午火即贵不宜多；丑戌不宜重见、不宜见金泄气。",
+      "when": [
+        "戊己日生四季月（辰戌丑未）"
+      ],
+      "then": [
+        "稼穑格；喜一木官，忌金泄"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.48-R6a.49",
+        "file_no": "052",
+        "material": "materials/05-三命通会/三命通会-知命书院本/052-卷06(07).md",
+        "quote": "若戊己生逢四季月则稼穑",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-065",
+      "title": "弃命从财",
+      "rule": "丁生酉月、柱多庚辛、日干无气，运北方财官旺地为入格；南行灾，逢根气则损。",
+      "when": [
+        "日主无气、财多成势"
+      ],
+      "then": [
+        "弃命从财；行财旺运吉，逢根气破格"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.75",
+        "file_no": "055",
+        "material": "materials/05-三命通会/三命通会-知命书院本/055-卷06(10)（1）.md",
+        "quote": "弃命从财：丁生酉月柱多庚辛、日干无气，运北方财官旺地为入格",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-066",
+      "title": "金白水清",
+      "rule": "庚申辛酉日生秋月、时遇亥子、无刑冲破害则金白水清，主富厚；切忌夏生不入格；春金运行西北亦可。",
+      "when": [
+        "庚申/辛酉日、秋生、时亥子"
+      ],
+      "then": [
+        "金白水清主富；夏生不入格"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.51-R6a.52",
+        "file_no": "052",
+        "material": "materials/05-三命通会/三命通会-知命书院本/052-卷06(07).md",
+        "quote": "若庚申辛酉日生秋月、时遇亥子、无刑冲破害则金白水清，主富厚",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-067",
+      "title": "木火交辉",
+      "rule": "甲戌甲午甲寅丙午丙寅丙戌生春夏、柱无金水、时有木火则木火交辉主清贵；木秀无火则不成局；丙辰生火旺月行木火运富而不贵。",
+      "when": [
+        "甲/丙日、春夏生、无金水、时木火"
+      ],
+      "then": [
+        "木火交辉主清贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.53-R6a.54",
+        "file_no": "052",
+        "material": "materials/05-三命通会/三命通会-知命书院本/052-卷06(07).md",
+        "quote": "若甲戌甲午甲寅丙午丙寅丙戌生春夏、柱无金水、时有木火则木火交辉主清贵",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-068",
+      "title": "火金铸印",
+      "rule": "金火相停则火金铸印，忌丑字损模。",
+      "when": [
+        "金火力量相停"
+      ],
+      "then": [
+        "火金铸印格；忌丑"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.55",
+        "file_no": "052",
+        "material": "materials/05-三命通会/三命通会-知命书院本/052-卷06(07).md",
+        "quote": "若金火相停则火金铸印，忌丑字损模",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-069",
+      "title": "四位纯全",
+      "rule": "四柱全寅申巳亥/子午卯酉/辰戌丑未则四位纯全，主大富贵但六亲刑害；子午卯酉入格为四极、失局为遍野桃花。",
+      "when": [
+        "四柱地支全同组"
+      ],
+      "then": [
+        "四位纯全主富贵而六亲刑害"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.58-R6a.59",
+        "file_no": "052",
+        "material": "materials/05-三命通会/三命通会-知命书院本/052-卷06(07).md",
+        "quote": "若四柱全寅申巳亥/子午卯酉/辰戌丑未则四位纯全……主大富贵但六亲刑害",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-070",
+      "title": "天元一气",
+      "rule": "天元一气十组（四壬寅…四癸亥），壬寅辛卯甲戌富贵双全、戊午丁未多凶险、癸亥贫薄、乙酉伤残；须查支内财官印食、生化刑克、岁运背否，不可执一皆贵。",
+      "when": [
+        "四柱天干一气"
+      ],
+      "then": [
+        "按具体日柱与支内财官判吉凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.60-R6a.61",
+        "file_no": "053",
+        "material": "materials/05-三命通会/三命通会-知命书院本/053-卷06(08).md",
+        "quote": "天元一气十组……不可执一皆贵",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "从格专旺"
+    },
+    {
+      "id": "GJ-080",
+      "title": "正财格",
+      "rule": "正财须得时乘旺、不偏正混乱、不重叠、日主有力方发福；忌财多身弱无印、财少身强带比劫、枭夺、刃劫、库空。正财宜藏忌露；先财后印为福、先印后财为辱；见比劫宜透出。",
+      "when": [
+        "月令/柱中正财为主"
+      ],
+      "then": [
+        "按身财强弱与喜忌判成格"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.65-R6a.67",
+        "file_no": "054",
+        "material": "materials/05-三命通会/三命通会-知命书院本/054-卷06(09).md",
+        "quote": "正财须得时乘旺、不偏正混乱、不重叠、日主有力方发福",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-081",
+      "title": "偏财格",
+      "rule": "偏财忌兄弟分夺、落空亡；财多生煞为破祖劳碌。偏财慷慨多诈、能旺官；年上偏财受伯叔祖考产业；时上偏财只要一位，喜辛官壬癸生助，忌庚煞乙劫，忌年月冲破。",
+      "when": [
+        "偏财为用"
+      ],
+      "then": [
+        "按位置与喜忌判"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.72-R6a.74",
+        "file_no": "055",
+        "material": "materials/05-三命通会/三命通会-知命书院本/055-卷06(10)（1）.md",
+        "quote": "偏财忌兄弟分夺、落空亡；财多生煞为破祖劳碌",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-082",
+      "title": "印绶格",
+      "rule": "印绶喜官（印赖官生）、喜七煞（不可多）、喜天月德、喜身弱；忌财破印、忌入财乡、忌死绝墓地；煞能生印而畏财乡。印绶有根喜财、无根忌财；有官有财则财生官、官生印、印生身。",
+      "when": [
+        "印绶为用"
+      ],
+      "then": [
+        "按喜官煞、忌财判"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.77-R6a.80",
+        "file_no": "055",
+        "material": "materials/05-三命通会/三命通会-知命书院本/055-卷06(10)（1）.md",
+        "quote": "印绶喜官……忌财破印、忌入财乡、忌死绝墓地",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-083",
+      "title": "倒食（偏印/吞啖煞）",
+      "rule": "倒食（偏印/吞啖煞）福薄寿夭，主有始无终、克六亲、幼克母；有制合则不为害（甲壬辰壬戌、乙癸未癸丑…癸辛巳辛未十干表）。",
+      "when": [
+        "偏印夺食"
+      ],
+      "then": [
+        "按倒食论；有制合减凶"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.85-R6a.86",
+        "file_no": "057",
+        "material": "materials/05-三命通会/三命通会-知命书院本/057-卷06(11).md",
+        "quote": "倒食（偏印/吞啖煞）福薄寿夭……有制合则不为害",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-084",
+      "title": "杂气格",
+      "rule": "杂气（辰戌丑未藏三件）喜透露冲刑、忌压伏身弱、冲刑太过则气散；库中有财主丰厚、绝处无依主滞、库头鬼为轩车煞、库头财主钱谷之任。",
+      "when": [
+        "月令为辰戌丑未杂气"
+      ],
+      "then": [
+        "按透冲与库中财官判"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.87-R6a.88",
+        "file_no": "057",
+        "material": "materials/05-三命通会/三命通会-知命书院本/057-卷06(11).md",
+        "quote": "杂气（辰戌丑未藏三件）喜透露冲刑、忌压伏身弱",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-085",
+      "title": "伤官格",
+      "rule": "伤官务要伤尽方作贵；伤尽而身旺财旺印旺则名标金榜一品。伤官见官祸患百端；伤不尽而岁运见官、刑冲刃煞、身弱财旺则徒流死亡。伤官要财不要官；用印去财、用财去印；身旺用财、身弱用印；喜财运忌官乡。火土伤官忌见官；金水木伤官不忌官。",
+      "when": [
+        "伤官为用"
+      ],
+      "then": [
+        "按伤尽/见官与身强弱判"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.90-R6a.93",
+        "file_no": "058",
+        "material": "materials/05-三命通会/三命通会-知命书院本/058-卷06(12).md",
+        "quote": "伤官务要伤尽方作贵……伤官见官祸患百端",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-086",
+      "title": "食神格",
+      "rule": "食神生旺无冲破则财厚食丰、有子息寿考；食神一名寿星、一名爵星。忌倒食、忌空亡、忌入墓、忌身衰枭旺、忌重见变伤官。食多宜行印运、食少不宜行印（枭神夺食）。",
+      "when": [
+        "食神为用"
+      ],
+      "then": [
+        "按生旺与忌神判"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.94-R6a.96",
+        "file_no": "059",
+        "material": "materials/05-三命通会/三命通会-知命书院本/059-卷06(13).md",
+        "quote": "食神生旺无冲破则财厚食丰、有子息寿考",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-087",
+      "title": "财旺生官",
+      "rule": "财旺生官：戊己生壬子癸亥月、四柱不见寅卯甲乙则因富致贵；透庚辛则不成。",
+      "when": [
+        "财旺且无官杀透"
+      ],
+      "then": [
+        "财旺生官，主富致贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.70",
+        "file_no": "054",
+        "material": "materials/05-三命通会/三命通会-知命书院本/054-卷06(09).md",
+        "quote": "财旺生官：戊己生壬子癸亥月、四柱不见寅卯甲乙则因富致贵；透庚辛则不成",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-088",
+      "title": "日坐天财",
+      "rule": "日坐天财：戊己克水、水墓辰，年干克下为天财，财入库主丰厚。",
+      "when": [
+        "日柱坐财库且年干克日干"
+      ],
+      "then": [
+        "日坐天财，主丰厚"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.76",
+        "file_no": "055",
+        "material": "materials/05-三命通会/三命通会-知命书院本/055-卷06(10)（1）.md",
+        "quote": "日坐天财：戊己克水、水墓辰，年干克下为天财，财入库主丰厚",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "常用正格"
+    },
+    {
+      "id": "GJ-100",
+      "title": "壬骑龙背",
+      "rule": "壬日坐辰（壬辰日）且柱中辰多，辰暗冲戌中丁戊，壬得财官之贵；再得一寅字合住财官为妙。财官显露（柱见丁巳午戌、或透己官戊煞乙伤丁合）则不入格/减分；喜身旺及伤官食神运，忌南方财官、北方亥子运。",
+      "when": [
+        "壬辰日、辰多、无财官显露"
+      ],
+      "then": [
+        "壬骑龙背格；得寅合为妙"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#046",
+        "file_no": "046",
+        "material": "materials/05-三命通会/三命通会-知命书院本/046-卷06(01).md",
+        "quote": "阳水叠逢辰位，是壬骑龙背之乡。",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-101",
+      "title": "子遥巳禄",
+      "rule": "甲子日再遇甲子时，二子中癸水遥合巳中戊土，丙合酉辛，为甲暗邀官星；喜生壬癸亥子月（印旺）、卯寅月（身旺），行官旺乡主登科食禄。忌庚辛丙字明露或申酉巳字破格（有制化不为害）；午冲子、丑绊子则减分；全格忌南方运。",
+      "when": [
+        "甲子日甲子时"
+      ],
+      "then": [
+        "子遥巳禄格；喜印身旺，忌官露与冲绊"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#046",
+        "file_no": "046",
+        "material": "materials/05-三命通会/三命通会-知命书院本/046-卷06(01).md",
+        "quote": "甲子日再遇子时",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-102",
+      "title": "丑遥巳禄",
+      "rule": "辛丑、癸丑日柱中丑多，丑能破巳，丙戊之禄出，辛癸遥合得官；忌子绊、巳字填实，见之不过虚名虚利。辛丑日宜秋月、癸丑日宜冬月；得申酉合住巳字为妙；辛日无丙丁巳午、癸日无戊己巳午为纯粹。",
+      "when": [
+        "辛丑/癸丑日、丑多"
+      ],
+      "then": [
+        "丑遥巳禄格；忌子绊巳填"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#046",
+        "file_no": "046",
+        "material": "materials/05-三命通会/三命通会-知命书院本/046-卷06(01).md",
+        "quote": "辛、癸日多逢丑地，不喜官星，岁时逢子巳二宫，虚名虚利",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-103",
+      "title": "冲合禄马",
+      "rule": "冲合禄马：甲日柱无酉辛丑而卯多（冲酉、巳酉合丑）为正官，喜壬癸生助，忌酉辛填实；乙日柱无申庚而有寅冲申、子辰合拱、巳刑出为正官，喜壬癸，忌申庚填实；戊日柱无卯乙而有酉冲卯、亥未合卯得官，喜壬癸财丙丁印，忌卯乙；己日柱无寅甲而有申冲寅、午戌合寅为暗官，喜财印，忌寅甲；丙丁为倒冲禄马，庚辛壬癸为飞天禄马。通则忌官星明露及受伤，月令得官乘旺为妙。",
+      "when": [
+        "日干为甲乙戊己且柱中无官、有冲合之神"
+      ],
+      "then": [
+        "按日干查冲合禄马；忌官露与填实"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#046",
+        "file_no": "046",
+        "material": "materials/05-三命通会/三命通会-知命书院本/046-卷06(01).md",
+        "quote": "冲合禄马：甲日柱无酉辛丑而卯多……",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": {
+        "甲": {
+          "所无": "酉辛丑",
+          "冲合": "卯多冲酉、巳酉合丑",
+          "所得": "正官",
+          "喜": "壬癸生助",
+          "忌": "酉辛填实"
+        },
+        "乙": {
+          "所无": "申庚",
+          "冲合": "寅冲申、子辰合拱、巳刑出",
+          "所得": "正官",
+          "喜": "壬癸生助",
+          "忌": "申庚填实"
+        },
+        "戊": {
+          "所无": "卯乙",
+          "冲合": "酉冲卯、亥未合卯",
+          "所得": "官星",
+          "喜": "壬癸财、丙丁印",
+          "忌": "卯乙"
+        },
+        "己": {
+          "所无": "寅甲",
+          "冲合": "申冲寅、午戌合寅",
+          "所得": "暗官",
+          "喜": "财、印",
+          "忌": "寅甲"
+        }
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-104",
+      "title": "破官格",
+      "rule": "四柱元无财官印绶而有破官之辰：癸卯日破出午中己土为官、癸酉日破出辰中戊土为官、甲午日破出酉中辛金为官；柱中须得一字三合合住贵气为妙。",
+      "when": [
+        "日柱为癸卯/癸酉/甲午且无财官印"
+      ],
+      "then": [
+        "按破官格论；须合住贵气"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#046",
+        "file_no": "046",
+        "material": "materials/05-三命通会/三命通会-知命书院本/046-卷06(01).md",
+        "quote": "癸卯日破出午中己土为官、癸酉日破出辰中戊土为官、甲午日破出酉中辛金为官",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-105",
+      "title": "飞财格",
+      "rule": "日干同月干、日支同时支，则冲出对宫之财，为飞财格，当发财禄；忌泄气，凶。庚日被局泄气伤官不能生财，而岁君/柱内再逢七煞克身则必死。",
+      "when": [
+        "日干同月干、日支同时支"
+      ],
+      "then": [
+        "飞财格；忌泄气与七煞"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#047",
+        "file_no": "047",
+        "material": "materials/05-三命通会/三命通会-知命书院本/047-卷06(02).md",
+        "quote": "日干同月干，日支同时支，冲出对宫之财是也。",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-106",
+      "title": "破财格",
+      "rule": "乙卯日生、八字不见财官，用卯破出午未中己土为财，要寅戌一字暗合财气为妙，忌劫财填实；庚申辛酉日破寅卯辰之木为财；丙午丁未日破酉戌之金为财；壬子癸丑日破巳午中之火为财；日主柔弱则不可。",
+      "when": [
+        "日柱为乙卯/庚申/辛酉/丙午/丁未/壬子/癸丑且无财官"
+      ],
+      "then": [
+        "按破财格取财；日主须强"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#047",
+        "file_no": "047",
+        "material": "materials/05-三命通会/三命通会-知命书院本/047-卷06(02).md",
+        "quote": "此数日本日刃日禄本体自强，故可冲破取财为用",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-107",
+      "title": "虎午奔巳",
+      "rule": "辛癸日见丑寅，取寅刑、丑合，刑合出巳中丙戊为辛癸官星；更得一酉字合贵为妙；有刑无合则禄不能住；柱见申巳即不入格。",
+      "when": [
+        "辛/癸日见丑寅"
+      ],
+      "then": [
+        "虎午奔巳格；须酉合贵，忌申巳"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#047",
+        "file_no": "047",
+        "material": "materials/05-三命通会/三命通会-知命书院本/047-卷06(02).md",
+        "quote": "若辛癸日见丑寅……取寅刑、丑合，刑合出巳中丙戊为辛癸官星",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-108",
+      "title": "羊击猪蛇",
+      "rule": "辛未、癸未日以二三未字合起亥字，冲出巳中丙戊为辛癸之官；柱有酉丑一字合住贵气为妙，怕填实冲刑。",
+      "when": [
+        "辛未/癸未日、未多"
+      ],
+      "then": [
+        "羊击猪蛇格；须酉丑合贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#047",
+        "file_no": "047",
+        "material": "materials/05-三命通会/三命通会-知命书院本/047-卷06(02).md",
+        "quote": "若辛未、癸未日以二三未字合起亥字……",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-109",
+      "title": "六阴朝阳",
+      "rule": "六辛日逢戊子时，辛以丙为官、癸为寿，戊合癸、戊禄在巳动丙，辛日得官。柱中只宜子字一位，多则不中；怕午冲、丑绊、丙巳填实。喜西方金旺之地，东北次之，南方死绝则忌。月令只宜申辰亥卯未酉月；四季月以印绶论；丙午丙寅丙戌月以财官论；甲寅乙卯月只以财论。",
+      "when": [
+        "辛日戊子时"
+      ],
+      "then": [
+        "六阴朝阳格；忌午冲丑绊丙巳填实"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#047",
+        "file_no": "047",
+        "material": "materials/05-三命通会/三命通会-知命书院本/047-卷06(02).md",
+        "quote": "六辛日逢戊子时……柱中只宜子字一位，多则不中",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-110",
+      "title": "六乙鼠贵",
+      "rule": "乙日得丙子时，子上丙火遥归巳中本禄，巳合申、申动子，申中带庚，乙日得官。独遇子（用鼠不用猴，申时则官星显露不取）；子字多为聚贵尤妙；要月通木局、日下支神皆是木旺之地，浮水印亦可；忌见金火。午冲、丑绊、申庚官露、酉辛煞露则破。",
+      "when": [
+        "乙日丙子时"
+      ],
+      "then": [
+        "六乙鼠贵格；忌金火与冲绊"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#048",
+        "file_no": "048",
+        "material": "materials/05-三命通会/三命通会-知命书院本/048-卷06(03).md",
+        "quote": "阴木独遇子时，为六乙鼠贵之地",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-111",
+      "title": "日禄归时",
+      "rule": "日主之禄归于时位（甲寅、丁午、戊巳、己午、庚申、壬亥、癸子；此为『日干＋禄支』略写，非日柱干支），喜日干坐旺、印绶生、月透财元、伤食、天月二德，主大富贵；忌刑冲破害、空亡死绝、劫财分禄、倒食作合、官煞克制。乙日己卯时、丙日癸巳时、辛日丁酉时不作归禄格。",
+      "when": [
+        "日干禄位在时支"
+      ],
+      "then": [
+        "日禄归时格；忌官星刑冲空亡"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#048",
+        "file_no": "048",
+        "material": "materials/05-三命通会/三命通会-知命书院本/048-卷06(03).md",
+        "quote": "日禄归时没官星，号青云得路。",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": [
+        "甲寅",
+        "丁午",
+        "戊巳",
+        "己午",
+        "庚申",
+        "壬亥",
+        "癸子"
+      ],
+      "group": "外格"
+    },
+    {
+      "id": "GJ-112",
+      "title": "拱禄拱贵",
+      "rule": "拱禄：癸亥癸丑拱子禄、丁巳丁未/己未己巳拱午禄、戊辰戊午拱巳禄；拱贵：甲申甲戌拱酉、乙未乙酉拱申、甲寅甲子拱丑、戊申戊午拱未、辛丑辛卯拱寅。须日时同干、贵禄与月令通气；运行身旺及贵禄旺地大好；忌刑冲破害、羊刃七煞伤日时，大忌填实、空亡。",
+      "when": [
+        "日时同干且夹拱禄/贵"
+      ],
+      "then": [
+        "拱禄拱贵格；忌填实空亡"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#048",
+        "file_no": "048",
+        "material": "materials/05-三命通会/三命通会-知命书院本/048-卷06(03).md",
+        "quote": "拱禄拱贵，填实则凶",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": {
+        "拱禄": {
+          "癸亥癸丑": "子",
+          "丁巳丁未": "午",
+          "己未己巳": "午",
+          "戊辰戊午": "巳"
+        },
+        "拱贵": {
+          "甲申甲戌": "酉",
+          "乙未乙酉": "申",
+          "甲寅甲子": "丑",
+          "戊申戊午": "未",
+          "辛丑辛卯": "寅"
+        }
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-113",
+      "title": "冲禄格",
+      "rule": "庚禄在申、柱中无申，得庚寅日而年月时再有寅字并冲申为庚之禄；甲禄在寅、柱无寅，得甲申日再加申字并冲寅为甲之禄。大忌丙伤庚、庚伤甲，填实禄位则不贵。",
+      "when": [
+        "庚/甲日禄位不现、柱多冲神"
+      ],
+      "then": [
+        "冲禄格；忌填实与伤克"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#048",
+        "file_no": "048",
+        "material": "materials/05-三命通会/三命通会-知命书院本/048-卷06(03).md",
+        "quote": "庚禄在申、柱中无申，得庚寅日而年月时再有寅字并冲申",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-114",
+      "title": "六壬趋艮",
+      "rule": "六壬日见甲寅时，合出亥中壬禄，即暗禄格；忌亥字填实，怕冲刑克破。壬寅、壬辰二日为正；见寅字多者大富（寅中甲木食神生丙火长生之财，财旺生官）；忌官煞损身、申庚伤甲。",
+      "when": [
+        "壬日甲寅时"
+      ],
+      "then": [
+        "六壬趋艮（暗禄）格；忌亥填申伤"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷六前段（046-048）.md#048",
+        "file_no": "048",
+        "material": "materials/05-三命通会/三命通会-知命书院本/048-卷06(03).md",
+        "quote": "六壬日见甲寅时……合出亥中壬禄，即暗禄格",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-115",
+      "title": "六甲趋乾",
+      "rule": "六甲日见亥（尤甲日亥时）则六甲趋乾成格；亥为天门，能合出寅中本禄。见寅填实、巳刑冲、柱有卯合亥则破格/减力。喜辛金生印、不喜财；折中为透印忌财、身旺喜财；岁运逢财旺则官灾患难。",
+      "when": [
+        "甲日见亥（尤亥时）"
+      ],
+      "then": [
+        "六甲趋乾格；忌寅填巳冲卯合"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.1-R6a.4",
+        "file_no": "049",
+        "material": "materials/05-三命通会/三命通会-知命书院本/049-卷06(04).md",
+        "quote": "若六甲日见亥（尤甲日亥时）则六甲趋乾成格；亥为天门，能合出寅中本禄",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-116",
+      "title": "魁罡",
+      "rule": "庚辰、壬辰、戊戌、庚戌四日叠化重逢则以伏为贵，为魁罡；见财官立祸、日位独处刑冲重临则小人刑责、运临财官旺处防奇祸。分日：庚辰庚戌忌财、戊戌无财不贵不宜见官、壬辰怕财官喜印绶。",
+      "when": [
+        "日柱为魁罡四日"
+      ],
+      "then": [
+        "魁罡格；忌财官刑冲"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.13-R6a.15",
+        "file_no": "050",
+        "material": "materials/05-三命通会/三命通会-知命书院本/050-卷06(05).md",
+        "quote": "庚辰壬辰戊戌庚戌四日叠化重逢则以伏为贵，为魁罡",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": [
+        "庚辰",
+        "壬辰",
+        "戊戌",
+        "庚戌"
+      ],
+      "group": "外格"
+    },
+    {
+      "id": "GJ-117",
+      "title": "日贵",
+      "rule": "丁酉、丁亥、癸巳、癸卯四日为日贵（自坐天乙）；忌刑冲破害空亡，运再遇忌、太岁加会、见魁罡则贫夭。分昼夜：日生取癸卯丁亥，夜生取癸巳丁酉。",
+      "when": [
+        "日柱为日贵四日"
+      ],
+      "then": [
+        "日贵格；忌刑冲空亡魁罡"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.8-R6a.10",
+        "file_no": "049",
+        "material": "materials/05-三命通会/三命通会-知命书院本/049-卷06(04).md",
+        "quote": "若丁酉丁亥癸巳癸卯四日则日贵（自坐天乙）",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": [
+        "丁酉",
+        "丁亥",
+        "癸巳",
+        "癸卯"
+      ],
+      "group": "外格"
+    },
+    {
+      "id": "GJ-118",
+      "title": "日德",
+      "rule": "甲寅、丙辰、戊辰、庚辰、壬戌五日为日德；忌魁罡（旺衰皆忌）、重叠忌财官、忌刑冲破害空亡。",
+      "when": [
+        "日柱为日德五日"
+      ],
+      "then": [
+        "日德格；忌魁罡刑冲空亡"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.11-R6a.12",
+        "file_no": "049",
+        "material": "materials/05-三命通会/三命通会-知命书院本/049-卷06(04).md",
+        "quote": "若甲寅丙辰戊辰庚辰壬戌五日则日德",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": [
+        "甲寅",
+        "丙辰",
+        "戊辰",
+        "庚辰",
+        "壬戌"
+      ],
+      "group": "外格"
+    },
+    {
+      "id": "GJ-119",
+      "title": "禄元互换",
+      "rule": "戊申见乙卯时、丁酉见壬寅、丙子见癸巳、庚子见丁亥为禄元互换；喜壬癸财生官、喜官旺运；忌甲煞辛伤寅酉冲。",
+      "when": [
+        "日时符合四组之一"
+      ],
+      "then": [
+        "禄元互换格；喜官旺，忌冲伤"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.22-R6a.23",
+        "file_no": "050",
+        "material": "materials/05-三命通会/三命通会-知命书院本/050-卷06(05).md",
+        "quote": "若戊申见乙卯时、丁酉见壬寅、丙子见癸巳、庚子见丁亥则禄元互换",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-120",
+      "title": "子午双包",
+      "rule": "两子两午、两午包一子、两子包一午，为子午双包，主贵。",
+      "when": [
+        "四柱子午成双包"
+      ],
+      "then": [
+        "子午双包，主贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.24",
+        "file_no": "050",
+        "material": "materials/05-三命通会/三命通会-知命书院本/050-卷06(05).md",
+        "quote": "若两子两午、两午包一子、两子包一午则子午双包主贵",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-121",
+      "title": "飞天禄马",
+      "rule": "庚子、壬子、辛亥、癸亥四日生十月十一月、柱无财官，须同支并冲；忌官星显露、忌合神羁绊，喜伤食与一字合住禄马。",
+      "when": [
+        "日为庚子/壬子/辛亥/癸亥、亥子月、无财官"
+      ],
+      "then": [
+        "飞天禄马格；喜合住，忌官露羁绊"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.98-R6a.99",
+        "file_no": "059",
+        "material": "materials/05-三命通会/三命通会-知命书院本/059-卷06(13).md",
+        "quote": "飞天禄马：庚子壬子辛亥癸亥四日生十月十一月、柱无财官，须同支并冲",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-122",
+      "title": "倒冲禄",
+      "rule": "丙午、丁巳二日夏日纯阳，午多冲子中癸、巳多冲亥中壬；忌未（丙午）、申辰（丁巳）羁绊，忌亥壬子癸官露，喜丑寅申辰卯未一字合住。",
+      "when": [
+        "丙午/丁巳日、夏生、支多"
+      ],
+      "then": [
+        "倒冲禄格；忌官露与羁绊"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.100-R6a.101",
+        "file_no": "059",
+        "material": "materials/05-三命通会/三命通会-知命书院本/059-卷06(13).md",
+        "quote": "倒冲禄：丙午、丁巳二日夏日纯阳",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-123",
+      "title": "还魂借气",
+      "rule": "五行自死绝而有救递还（木绝申遇甲申、金绝寅遇戊寅）为还魂借气，最吉。",
+      "when": [
+        "五行死绝处得同类救援"
+      ],
+      "then": [
+        "还魂借气，最吉"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.36",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "若五行自死绝而有救递还（木绝申遇甲申、金绝寅遇戊寅）则还魂借气最吉",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "group": "外格"
+    },
+    {
+      "id": "GJ-124",
+      "title": "八专",
+      "rule": "八专日：甲寅、乙卯、己未、丁未、庚申、辛酉、戊戌、癸丑；甲寅乙卯庚申辛酉四日为正。喜财印食与专禄旺运，怕比肩劫财；官煞混杂则禄不专为祸；无财官则多孤或僧道。",
+      "when": [
+        "日柱为八专日"
+      ],
+      "then": [
+        "八专格；喜财印食，忌比劫官煞混"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.37-R6a.39",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "八专日添丙午丁巳戊辰戊午己巳乙丑壬子无丁未；甲寅乙卯庚申辛酉四日为正",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "data": [
+        "甲寅",
+        "乙卯",
+        "己未",
+        "丁未",
+        "庚申",
+        "辛酉",
+        "戊戌",
+        "癸丑"
+      ],
+      "group": "外格",
+      "notes": "原文『添丙午丁巳戊辰戊午己巳乙丑壬子无丁未』与首句所列八日不同，笔记已照录；以八专日列表为准，丙午等为附例待核。"
+    },
+    {
+      "id": "GJ-125",
+      "title": "五方五兽格（青龙/白虎/朱雀/玄武/勾陈）",
+      "rule": "青龙伏形：甲申甲戌乙巳乙酉乙丑五日坐金伏形，须月令有托、不见伤官、金木相停；乙巳日时名青龙伏藏（饮酒有失、暗损福寿）。白虎持势：庚午庚寅庚戌辛巳辛卯辛未六日，用官必贵、用财必富；辛卯日时犯白虎（不利战斗、多眼目疾）。朱雀乘风：丙丁居金水之乡身旺有托；丙子丁亥为既济，申子辰局亦是；丁未日时名朱雀折足（不利六畜、亡散疮疾）。玄武当权：壬寅壬午壬戌壬辰癸巳癸丑癸未坐财官印、身旺官通月令；忌水局伤官重并，土火重宜见金泄气生身；壬辰日时名玄武受戳（被谗、是非不宁）。勾陈得位：戊寅戊辰戊子戊申己卯己亥己未坐财官印、身旺；忌冲刑、煞旺生灾；不见伤官劫财为妙。",
+      "when": [
+        "日柱符合五方五兽格条件"
+      ],
+      "then": [
+        "按五格分别判贵与喜忌"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六中段（049-059）.md#R6a.25-R6a.35",
+        "file_no": "051",
+        "material": "materials/05-三命通会/三命通会-知命书院本/051-卷06(06).md",
+        "quote": "青龙伏形……白虎持势……朱雀乘风……玄武当权……勾陈得位",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": {
+        "青龙伏形": {
+          "日柱": [
+            "甲申",
+            "甲戌",
+            "乙巳",
+            "乙酉",
+            "乙丑"
+          ],
+          "条件": "月令有托、不见伤官、金木相停"
+        },
+        "白虎持势": {
+          "日柱": [
+            "庚午",
+            "庚寅",
+            "庚戌",
+            "辛巳",
+            "辛卯",
+            "辛未"
+          ],
+          "喜": "用官必贵、用财必富"
+        },
+        "朱雀乘风": {
+          "条件": "丙丁居金水之乡、身旺有托；丙子丁亥既济、申子辰局亦成"
+        },
+        "玄武当权": {
+          "日柱": [
+            "壬寅",
+            "壬午",
+            "壬戌",
+            "壬辰",
+            "癸巳",
+            "癸丑",
+            "癸未"
+          ],
+          "条件": "坐财官印、身旺官通月令"
+        },
+        "勾陈得位": {
+          "日柱": [
+            "戊寅",
+            "戊辰",
+            "戊子",
+            "戊申",
+            "己卯",
+            "己亥",
+            "己未"
+          ],
+          "条件": "坐财官印、身旺"
+        }
+      },
+      "group": "外格"
+    }
+  ]
+}

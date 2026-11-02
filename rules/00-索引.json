@@ -1,0 +1,275 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-10-30",
+  "source_work": "三命通会（知命书院转录本·未经影印本校对）",
+  "source_notes": "knowledge/06-四柱/精读笔记/（8 份，152 文件全覆盖，引文核验 96.3%）",
+  "scope": "排盘必需集：四柱干支/藏干/十神/月令/禄马/羊刃/空亡/格局判定",
+  "conventions": {
+    "levels": [
+      "原文",
+      "通行-需注",
+      "推定",
+      "待核"
+    ],
+    "status": [
+      "可编码",
+      "需校勘",
+      "参考"
+    ],
+    "gate": "engine.loadable=false 的规则不得被排盘引擎加载；待核项须先完成影印本/互校本校勘。"
+  },
+  "totals": {
+    "rules": 396,
+    "loadable": 384,
+    "blocked": 2,
+    "reference": 10,
+    "by_level": {
+      "通行-需注": 20,
+      "原文": 369,
+      "推定": 6,
+      "待核": 1
+    },
+    "by_status": {
+      "可编码": 384,
+      "需校勘": 2,
+      "参考": 10
+    },
+    "by_priority": {
+      "must": 111,
+      "should": 150,
+      "optional": 135
+    },
+    "quote_check": {
+      "checked": 290,
+      "hit": 162,
+      "miss": 128,
+      "note": "仅对 quote_type 以『原文』开头者回查；未命中已降级为笔记规范化摘要"
+    }
+  },
+  "blocked_rules": [
+    {
+      "id": "CG-006",
+      "title": "用事日数须按节气实际长度折算",
+      "level": "推定",
+      "status": "需校勘"
+    },
+    {
+      "id": "LM-004",
+      "title": "十二驿马名目",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "YR-008",
+      "title": "羊刃相蚀",
+      "level": "待核",
+      "status": "需校勘"
+    },
+    {
+      "id": "J7-047",
+      "title": "女命总歌要旨",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "J7-048",
+      "title": "择妇歌要旨",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "J7-052",
+      "title": "小儿生时天气占",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "J7-053",
+      "title": "小儿杂煞",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "J7-065",
+      "title": "定孕男女两法",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "WG2-007",
+      "title": "大贵人应世",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "WG2-021",
+      "title": "印绶月令忌时冲",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "ZP-018",
+      "title": "渊海论日为主（五神总纲）",
+      "level": "原文",
+      "status": "参考"
+    },
+    {
+      "id": "ZP-020",
+      "title": "藏干用事两说（渊海暗藏总诀 vs 三命人元司事）",
+      "level": "原文",
+      "status": "参考"
+    }
+  ],
+  "categories": [
+    {
+      "file": "rules/01-四柱干支.json",
+      "category_id": "SZ",
+      "category": "四柱干支",
+      "count": 17,
+      "loadable": 17,
+      "blocked": 0,
+      "reference": 0,
+      "description": "四柱排法、五虎遁/五鼠遁、四柱本主、胎元命宫。排盘层必选集。"
+    },
+    {
+      "file": "rules/02-藏干.json",
+      "category_id": "CG",
+      "category": "藏干",
+      "count": 6,
+      "loadable": 5,
+      "blocked": 1,
+      "reference": 0,
+      "description": "十二支藏干、人元司事用事日数、本中余气取用。"
+    },
+    {
+      "file": "rules/03-十神.json",
+      "category_id": "SS",
+      "category": "十神",
+      "count": 19,
+      "loadable": 19,
+      "blocked": 0,
+      "reference": 0,
+      "description": "十神定义（印食官财四纲）、阴阳从类与配合、判定公式、数量含义。"
+    },
+    {
+      "file": "rules/04-月令.json",
+      "category_id": "YL",
+      "category": "月令",
+      "count": 14,
+      "loadable": 14,
+      "blocked": 0,
+      "reference": 0,
+      "description": "月令取用、十二月令十神提要、旺相休囚死、十二长生、十干生死。"
+    },
+    {
+      "file": "rules/05-禄马.json",
+      "category_id": "LM",
+      "category": "禄马",
+      "count": 12,
+      "loadable": 11,
+      "blocked": 0,
+      "reference": 1,
+      "description": "十干禄、金舆、驿马、禄马交驰/同乡/夹禄夹马。"
+    },
+    {
+      "file": "rules/06-羊刃.json",
+      "category_id": "YR",
+      "category": "羊刃",
+      "count": 17,
+      "loadable": 16,
+      "blocked": 1,
+      "reference": 0,
+      "description": "羊刃起法、真刃飞刃、刃头财/鬼、阳刃分类与岁运喜忌。"
+    },
+    {
+      "file": "rules/07-空亡.json",
+      "category_id": "KW",
+      "category": "空亡",
+      "count": 17,
+      "loadable": 17,
+      "blocked": 0,
+      "reference": 0,
+      "description": "旬空起法、轻重、真空亡、截路/四大/五鬼/克害/破祖空亡。"
+    },
+    {
+      "file": "rules/08-格局判定.json",
+      "category_id": "GJ",
+      "category": "格局判定",
+      "count": 87,
+      "loadable": 87,
+      "blocked": 0,
+      "reference": 0,
+      "description": "总则、正官格、偏官七煞格、建禄格、从格专旺、常用正格、外格。"
+    },
+    {
+      "file": "rules/09-神煞.json",
+      "category_id": "SSH",
+      "category": "神煞",
+      "count": 67,
+      "loadable": 67,
+      "blocked": 0,
+      "reference": 0,
+      "description": "天乙贵人、三奇、天月德、太极、学堂词馆、劫煞亡神、元辰、灾煞、杂煞（卷三 023–031）。"
+    },
+    {
+      "file": "rules/10-运岁.json",
+      "category_id": "YS",
+      "category": "运岁",
+      "count": 16,
+      "loadable": 16,
+      "blocked": 0,
+      "reference": 0,
+      "description": "大运顺逆与起运、小运、太岁、岁运并临、返吟伏吟。"
+    },
+    {
+      "file": "rules/11-卷四查表.json",
+      "category_id": "J4",
+      "category": "卷四查表",
+      "count": 10,
+      "loadable": 10,
+      "blocked": 0,
+      "reference": 0,
+      "description": "十干坐支逐干喜忌、六日财官表、十二月支得日干逐月表、五行时地分野。"
+    },
+    {
+      "file": "rules/12-卷七断法.json",
+      "category_id": "J7",
+      "category": "卷七断法",
+      "count": 46,
+      "loadable": 41,
+      "blocked": 0,
+      "reference": 5,
+      "description": "性情相貌、疾病脏腑、女命八法八格、小儿关煞、六亲取用。"
+    },
+    {
+      "file": "rules/13-日时命式库.json",
+      "category_id": "MS",
+      "category": "日时命式库",
+      "count": 4,
+      "loadable": 4,
+      "blocked": 0,
+      "reference": 0,
+      "description": "卷八/卷九 116 组「日干＋时支」命式断语库（非四柱命例库）。"
+    },
+    {
+      "file": "rules/14-外格补遗.json",
+      "category_id": "WG2",
+      "category": "外格补遗",
+      "count": 34,
+      "loadable": 32,
+      "blocked": 0,
+      "reference": 2,
+      "description": "财官双美、福德秀气、墓煞、背禄逐马、正马、天元坐财、食神同窠等 25 组外格/变格。"
+    },
+    {
+      "file": "rules/15-子平互验补充.json",
+      "category_id": "ZP",
+      "category": "子平互验补充",
+      "count": 29,
+      "loadable": 27,
+      "blocked": 0,
+      "reference": 2,
+      "description": "渊海子平＋千里命稿与三命通会互验后新增的规则（金神格、从儿从旺从强从官、干克干合力量、化气五项、阴刃三说、天德文昌表等）。"
+    }
+  ]
+}

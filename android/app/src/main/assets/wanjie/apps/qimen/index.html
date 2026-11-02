@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="zh-CN" data-page="qimen">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>奇门遁甲排盘</title>
+<style>
+:root{
+  --bg:#f6f3ec; --fg:#2b2620; --card:#fffdf7; --muted:#ece7da; --muted-fg:#6f6656;
+  --border:#d8d0bd; --accent:#efe9da; --primary:#8a3324; --primary-fg:#fdf9f0;
+  --green:#3d7a46; --red:#a83a2e; --gold:#9a7b23; --purple:#6b4d8f; --blue:#2f5f8a;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#211d18; --fg:#e8e1d3; --card:#2a251e; --muted:#332d25; --muted-fg:#a89e8a;
+  --border:#4a4234; --accent:#3a332a; --primary:#c96a52; --primary-fg:#211d18;
+  --green:#7fb08a; --red:#d98877; --gold:#cbb268; --purple:#a58cc4; --blue:#7aa5c9;
+}}
+*{box-sizing:border-box}
+body{margin:0 auto;padding:16px 18px 48px;max-width:1000px;background:var(--bg);color:var(--fg);
+  font:14px/1.6 "Source Han Serif SC","Noto Serif SC","Songti SC",SimSun,serif;}
+h1{font-size:20px;margin:0 0 4px;font-weight:600;letter-spacing:.06em}
+h2{font-size:15px;margin:20px 0 8px;font-weight:600}
+.sub{color:var(--muted-fg);font-size:12px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:12px 0}
+label{display:block;font-size:11px;color:var(--muted-fg);margin-bottom:2px}
+input,select,button{font:inherit;font-size:13px;color:var(--fg);background:var(--card);
+  border:1px solid var(--border);border-radius:6px;padding:4px 7px;height:30px}
+button{cursor:pointer}
+button:hover{background:var(--accent)}
+button.primary{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
+button.primary:hover{filter:brightness(1.06)}
+#cfgbox{margin-top:2px}
+#cfgbox summary{cursor:pointer;font-size:12px;color:var(--muted-fg)}
+.summary{margin:12px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px}
+.kv{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 9px}
+.kv .k{font-size:11px;color:var(--muted-fg)}
+.kv .v{font-size:14px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+.cell{position:relative;background:var(--card);border:1px solid var(--border);border-radius:8px;
+  min-height:158px;padding:7px 8px 6px;display:flex;flex-direction:column;justify-content:space-between}
+.cell.mid{background:var(--muted)}
+.cell .row{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.shen{font-size:11px;padding:1px 5px;border-radius:9px;border:1px solid var(--border);white-space:nowrap}
+.shen.good{color:var(--green);border-color:var(--green)}
+.shen.bad{color:var(--red);border-color:var(--red)}
+.star{font-size:12px;color:var(--muted-fg)}
+.gan-t{font-size:26px;line-height:1.15;font-weight:600;text-align:center}
+.gan-t.qi{color:var(--purple)}
+.gan-d{font-size:13px;text-align:center;color:var(--muted-fg)}
+.door{font-size:12px;text-align:center;padding:2px 0;border-radius:6px;background:var(--accent)}
+.door.ji{color:var(--green)}
+.door.xiong{color:var(--red)}
+.gong{font-size:10px;color:var(--muted-fg)}
+.gj{font-size:10px;color:var(--gold);line-height:1.25}
+.tag{display:inline-block;font-size:9px;line-height:1.35;padding:0 4px;margin-left:3px;
+  border-radius:7px;border:1px solid var(--border);color:var(--muted-fg);vertical-align:1px}
+.tag.kong{color:var(--blue);border-color:var(--blue)}
+.tag.ma{color:var(--purple);border-color:var(--purple)}
+.tag.yong{color:var(--gold);border-color:var(--gold)}
+.tag.xun{color:var(--green);border-color:var(--green)}
+.tag.fu{color:var(--red);border-color:var(--red)}
+.tag.shi{color:var(--gold);border-color:var(--gold)}
+.wx{font-style:normal;font-size:10px;color:var(--muted-fg)}
+.wang{font-style:normal;font-size:10px;padding:0 4px;border-radius:7px;border:1px solid var(--border);margin-left:3px}
+.wang.w{color:var(--green);border-color:var(--green)}
+.wang.x{color:var(--gold);border-color:var(--gold)}
+.wang.bad{color:var(--red);border-color:var(--red)}
+.rel{font-size:10px;color:var(--muted-fg)}
+.rel.bad{color:var(--red)}
+.rel.good{color:var(--green)}
+.cell .mid{display:flex;flex-direction:column;justify-content:center;gap:1px}
+.cell .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:4px;margin-top:2px}
+.verdict{display:flex;align-items:baseline;gap:12px;background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:10px 14px;margin:6px 0 8px}
+.verdict .big{font-size:24px;font-weight:600}
+.verdict.ji .big{color:var(--green)} .verdict.xiong .big{color:var(--red)}
+.verdict .score{font-size:18px;color:var(--muted-fg)}
+.verdict .sub{font-size:11px;color:var(--muted-fg)}
+.factors{margin:6px 0 0;padding-left:18px;font-size:12px}
+.factors li{margin:1px 0}
+.factors li.plus{color:var(--green)} .factors li.minus{color:var(--red)}
+.src{color:var(--muted-fg);font-size:10px}
+.kp{font-size:12px;margin:2px 0}
+.ai{border-top:1px dashed var(--border);margin-top:18px;padding-top:12px}
+.ai-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.ai-controls input{flex:1;min-width:220px}
+.ai-out{white-space:pre-wrap;font-size:13px;line-height:1.75;background:var(--card);
+  border:1px solid var(--border);border-radius:8px;padding:10px 12px;min-height:40px}
+.ai-out:empty{display:none}
+#ai-persona{resize:vertical}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11px;color:var(--muted-fg);margin:2px 0 6px}
+.tabs{display:flex;gap:6px;margin:18px 0 8px;flex-wrap:wrap}
+.tab{padding:5px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:13px}
+.tab.on{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
+.pane{display:none}
+.pane.on{display:block}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);
+  border:1px solid var(--border);border-radius:8px;overflow:hidden}
+th,td{border-bottom:1px solid var(--border);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--muted);font-weight:600;font-size:12px}
+tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:10px;padding:0 5px;border-radius:8px;border:1px solid var(--border)}
+.badge.ji{color:var(--green);border-color:var(--green)}
+.badge.xiong{color:var(--red);border-color:var(--red)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 10px;margin:6px 0}
+.card .h{font-weight:600;font-size:13px}
+.card .q{font-size:12px;color:var(--muted-fg);margin-top:2px}
+.card .s{font-size:11px;color:var(--muted-fg);margin-top:3px}
+.warn{color:var(--gold);font-size:12px}
+.err{color:var(--red)}
+.foot{margin-top:22px;font-size:11px;color:var(--muted-fg);line-height:1.7}
+@media (max-width:640px){ .grid{grid-template-columns:repeat(3,1fr)} .cell{min-height:112px;padding:6px}
+  .gan-t{font-size:21px} .gj{display:none} }
+</style>
+<link rel="stylesheet" href="../assets/suite.css">
+<link rel="stylesheet" href="../assets/themes.css">
+<script src="../assets/suite.js"></script>
+<script src="../assets/suite-data.js" defer></script>
+<script src="../assets/suite-bridge.js" defer></script>
+
+</head>
+<body>
+<h1>奇门遁甲排盘</h1>
+<div class="sub">时家奇门 · 定局与三盘 · 格局 30 类 · 断语 182 条 · 每条带出处</div>
+
+<div class="controls">
+  <div><label>时间</label><input type="datetime-local" id="dt"></div>
+  <div><label>占问</label><select id="question">
+      <option>通用</option><option>求财</option><option>婚姻</option><option>疾病</option>
+      <option>官讼</option><option>出行</option><option>失物</option><option>考试</option>
+      <option>谋事</option><option>家宅</option>
+    </select></div>
+  <div><label>&nbsp;</label><button id="now">现在</button></div>
+  <div><label>&nbsp;</label><button class="primary" id="run">起局</button></div>
+  <div><label>&nbsp;</label><button id="copy">复制 JSON</button></div>
+</div>
+
+<details id="cfgbox"><summary>流派设置（改后自动重排）</summary>
+  <div class="controls">
+    <div><label>定局法</label><select id="ding_ju">
+      <option value="chaibu" selected>拆补·当前节气（主流）</option>
+      <option value="zhirun_9">置闰·超九日</option>
+      <option value="zhirun_7">置闰·宝鉴七日</option>
+      <option value="zhirun_10">置闰·超十日</option>
+      
+      <option value="xianshu">时宪书正授</option>
+      <option value="qiyu">每气余时（旨归）</option>
+    </select></div>
+    <div><label>中五寄宫</label><select id="jigong">
+      <option value="kun2">寄坤二（默认）</option>
+      <option value="yang2yin8">阳二阴八</option>
+      <option value="siwei">四维随令</option>
+      <option value="none">不寄宫</option>
+    </select></div>
+    <div><label>八神</label><select id="bushen">
+      <option value="yuding">御定（朱雀白虎）</option>
+      <option value="baihu">白虎玄武</option>
+      <option value="goutian">勾陈系</option>
+      <option value="jiu">九神含太常</option>
+    </select></div>
+    <div><label>神盘布法</label><select id="shen_bufa">
+      <option value="ring">不循宫次（默认）</option>
+      <option value="fly9">顺飞九宫</option>
+    </select></div>
+    <div><label>门迫</label><select id="menpo">
+      <option value="men_zhi">门制其宫为迫（默认）</option>
+      <option value="gong_zhi">宫制其门为迫</option>
+    </select></div>
+    <div><label>日界</label><select id="day_boundary">
+      <option value="23:00">23:00 晚子时换日（默认）</option>
+      <option value="00:00">00:00</option>
+    </select></div>
+    <div><label>真太阳时</label><span><input type="checkbox" id="tst" style="height:auto"> 经度 <input id="lon" type="number" value="120" step="0.1" style="width:76px"></span></div>
+  </div>
+</details>
+
+<details id="aibox"><summary>AI 解盘配置（密钥只存本机浏览器）</summary>
+  <div class="controls">
+    <div style="min-width:260px"><label>接口地址（OpenAI 兼容）</label>
+      <input id="ai-base" placeholder="https://api.openai.com/v1" style="width:260px"></div>
+    <div><label>API Key</label><input id="ai-key" type="password" placeholder="sk-..." style="width:200px"></div>
+    <div><label>模型</label><input id="ai-model" placeholder="gpt-4o-mini" style="width:150px"></div>
+    <div><label>温度</label><input id="ai-temp" type="number" value="0.6" step="0.1" min="0" max="2" style="width:70px"></div>
+    <div><label>&nbsp;</label><button id="ai-save">保存</button></div>
+    <div><label>&nbsp;</label><button id="ai-test">测试连接</button></div>
+    <div><label>&nbsp;</label><button id="ai-clear">清除</button></div>
+  </div>
+  <div style="margin-top:8px">
+    <label>解答人设（system prompt）</label>
+    <textarea id="ai-persona" rows="4" style="width:100%;font:inherit;font-size:12px;background:var(--card);
+      color:var(--fg);border:1px solid var(--border);border-radius:6px;padding:6px"></textarea>
+  </div>
+  <div class="sub" id="ai-state"></div>
+</details>
+
+<div class="summary" id="summary"></div>
+<div class="grid" id="grid"></div>
+
+<div class="tabs" id="tabs">
+  <div class="tab on" data-p="jie">解盘</div>
+  <div class="tab" data-p="ge">格局</div>
+  <div class="tab" data-p="duan">断语</div>
+  <div class="tab" data-p="ev">依据卡</div>
+  <div class="tab" data-p="about">说明</div>
+</div>
+<div class="pane on" id="pane-jie"></div>
+<div class="pane" id="pane-ge"></div>
+<div class="pane" id="pane-duan"></div>
+<div class="pane" id="pane-ev"></div>
+<div class="pane" id="pane-about"></div>
+
+<div class="foot" id="foot"></div>
+
+<script src="../assets/yingqi.js"></script>
+<script>
+const PALACE = {1:"坎一",2:"坤二",3:"震三",4:"巽四",5:"中五",6:"乾六",7:"兑七",8:"艮八",9:"离九"};
+const LAYOUT = [4,9,2,3,5,7,8,1,6];
+const GOOD_DOOR = new Set(["开门","休门","生门"]);
+const BAD_DOOR = new Set(["死门","惊门","伤门"]);
+const GOOD_SHEN = new Set(["值符","太阴","六合","九地","九天"]);
+const BAD_SHEN = new Set(["螣蛇","白虎","玄武","朱雀","勾陈"]);
+const JIGONG = {kun2:"寄坤二", yang2yin8:"阳二阴八", siwei:"四维随令", none:"不寄宫"};
+const ganText = v => [...String(v || "")].join("/");
+let DATA = null;
+let QYQ_ON = false;
+function yqBtnText(){ return QYQ_ON ? "关闭应期" : "显示应期"; }
+function toggleQYQ(){
+  QYQ_ON = !QYQ_ON;
+  const b = document.getElementById("yq-toggle");
+  if (b) b.textContent = yqBtnText();
+  renderQYQ();
+}
+function renderQYQ(){
+  const box = document.getElementById("yq-body");
+  if (!box) return;
+  box.style.display = QYQ_ON ? "block" : "none";
+  if (!QYQ_ON) return;
+  if (window.YQ && YQ.render) YQ.render(box, DATA && DATA.yingqi);
+  else box.textContent = "应期模块未加载。";
+}
+
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad = n => String(n).padStart(2,"0");
+function nowLocal(){ const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`; }
+
+function cfgQuery(){
+  const q = new URLSearchParams();
+  q.set("dt", document.getElementById("dt").value || nowLocal());
+  for (const id of ["ding_ju","jigong","bushen","shen_bufa","menpo","day_boundary"])
+    q.set(id, document.getElementById(id).value);
+  q.set("true_solar_time", document.getElementById("tst").checked ? "1" : "0");
+  q.set("longitude", document.getElementById("lon").value || "120");
+  q.set("question", document.getElementById("question").value);
+  return q.toString();
+}
+
+async function load(){
+  const box = document.getElementById("summary");
+  box.innerHTML = `<div class="kv"><div class="k">状态</div><div class="v">起局中…</div></div>`;
+  try{
+    const r = await fetch("api/chart?" + cfgQuery());
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+    DATA = d; render();
+  }catch(e){
+    box.innerHTML = `<div class="kv err"><div class="k">错误</div><div class="v">${esc(e.message)}</div></div>`;
+  }
+}
+
+function render(){
+  const c = DATA.chart, t = c.term, fp = c.four_pillars;
+  const kv = [
+    ["四柱", `${fp.year} ${fp.month} ${fp.day} ${fp.hour}`],
+    ["当前节气", t.current_term || t.term],
+    ["定局", `${t.dun}遁 ${t.ju} 局（${t.ju_term}${t.yuan}元）`],
+    ["超接", `${t.state}${t.chao_days ? "·" + t.chao_days + "日" : ""}${t.run ? "·闰奇" : ""}`],
+    ["符头", `${t.futou_gz} ${t.futou}`],
+    ["值符", `${c.zhi_fu.star} ${PALACE[c.zhi_fu.home_gong]}→${PALACE[c.zhi_fu.add_to_gong]}`],
+    ["值使", `${c.zhi_shi.door} ${PALACE[c.zhi_shi.home_gong]}→${PALACE[c.zhi_shi.add_to_gong]}`],
+    ["旬空 / 马星", `${c.xun_kong.xun}旬 ${c.xun_kong.kong.join("、")} ｜ 马 ${c.ma_xing}`],
+  ];
+  document.getElementById("summary").innerHTML =
+    kv.map(([k,v]) => `<div class="kv"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`).join("");
+
+  const geByGong = {};
+  for (const g of c.ge_ju) if (g.gong) (geByGong[g.gong] ||= []).push(g.name);
+  const XUNYI = {"甲子":"戊","甲戌":"己","甲申":"庚","甲午":"辛","甲辰":"壬","甲寅":"癸"};
+  const xunYi = XUNYI[c.xun_kong.xun] || "";
+  const WANG_CLS = {"旺":"w","相":"w","休":"x","囚":"bad","废":"bad"};
+
+  function relCls(r){ return !r ? "" : (r.includes("迫") ? "bad" : (r.includes("制") ? "" : (r.includes("生") ? "good" : ""))); }
+
+  document.getElementById("grid").innerHTML = LAYOUT.map(g => {
+    const s = String(g), cell = (c.cells || {})[s] || {};
+    if (g === 5){
+      const zg = c.zhong_gong, st = cell.star || {};
+      return `<div class="cell mid">
+        <div class="row"><span class="star">中五 · 土</span>
+          <span class="star">天禽<span class="wx">土</span><b class="wang ${WANG_CLS[st.wang]||""}">${esc(st.wang||"")}</b></span></div>
+        <div class="mid"><div class="gan-t">${esc((cell.di_gan||[]).join("/") || zg.gan || "")}</div>
+          <div class="gan-d">寄${esc(PALACE[zg.jigong] || "-")} · 寄门 ${esc(zg.ji_men || "-")}</div></div>
+        <div class="door">${esc(JIGONG[zg.jigong_rule] || zg.jigong_rule)}</div>
+        <div class="foot"><span class="gong">中五 · 土</span><span class="gj"></span></div></div>`;
+    }
+    const shen = cell.shen || c.pan.ba_shen[s] || "";
+    const st = cell.star || {name: c.pan.jiu_xing[s] || ""};
+    const dg = cell.door || {name: c.pan.ba_men[s] || ""};
+    const tian = (cell.tian_gan || []).join("/") || c.pan.tian_pan[s] || "";
+    const di = (cell.di_gan || []).join("/") || c.pan.di_pan[s] || "";
+    const shenCls = GOOD_SHEN.has(shen) ? "good" : (BAD_SHEN.has(shen) ? "bad" : "");
+    const doorCls = GOOD_DOOR.has(dg.name) ? "ji" : (BAD_DOOR.has(dg.name) ? "xiong" : "");
+    const qi = [...tian].some(ch => "乙丙丁".includes(ch)) ? "qi" : "";
+    const tags = [];
+    if (di.includes(xunYi) && xunYi) tags.push('<span class="tag xun">旬首</span>');
+    if (cell.kong) tags.push('<span class="tag kong">空</span>');
+    if (cell.ma) tags.push('<span class="tag ma">马</span>');
+    if (cell.day_gan) tags.push('<span class="tag yong">日干</span>');
+    if (cell.hour_gan) tags.push('<span class="tag yong">时干</span>');
+    const gb = [];
+    if (cell.is_zhifu) gb.push('<span class="tag fu">符</span>');
+    if (cell.is_zhishi) gb.push('<span class="tag shi">使</span>');
+    const gjs = (geByGong[g] || []).slice(0,2).join("·");
+    return `<div class="cell">
+      <div class="row"><span class="shen ${shenCls}">${esc(shen)}</span>
+        <span class="star">${esc(st.name)}<span class="wx">${esc(st.wx||"")}</span>${st.wang?`<b class="wang ${WANG_CLS[st.wang]||""}">${esc(st.wang)}</b>`:""}</span></div>
+      <div class="mid"><div class="gan-t ${qi}">${esc(tian)}</div>
+        <div class="gan-d">${esc(di)}${tags.join("")}</div></div>
+      <div class="door ${doorCls}">${esc(dg.name)}<span class="wx">${esc(dg.wx||"")}</span>
+        <span class="rel ${relCls(dg.relation||"")}">${esc(dg.relation||"")}</span></div>
+      <div class="foot"><span class="gong">${PALACE[g]} · ${esc(cell.gong_wx||"")}</span>
+        <span>${gb.join("")}${gjs?`<span class="gj">${esc(gjs)}</span>`:""}</span></div></div>`;
+  }).join("") + `<div class="legend">
+    <span>星后小字：五行；旺/相吉、休/囚/废衰</span>
+    <span>门后：五行·门宫关系（门克宫为迫）</span>
+    <span>空＝旬空；马＝驿马；符＝值符宫；使＝值使宫；日干/时干＝落宫</span>
+  </div>`;
+
+  // 解盘
+  const it = DATA.interpret;
+  const v = it.verdict;
+  const vcls = v.level.includes("吉") ? "ji" : (v.level.includes("凶") ? "xiong" : "");
+  document.getElementById("pane-jie").innerHTML =
+    `<div class="verdict ${vcls}"><span class="big">${esc(v.level)}</span>
+       <span class="score">${v.score >= 0 ? "+" : ""}${v.score}</span>
+       <span class="sub">${esc(it.question)} · ${esc(v.basis)} · 仅供参看</span></div>` +
+    it.yong_shen.map(x => `<div class="card">
+      <div class="h">${esc(x.role)}${x.gong ? " · " + PALACE[x.gong] : ""}
+        <span class="badge ${x.subtotal > 0 ? "ji" : (x.subtotal < 0 ? "xiong" : "")}">${x.subtotal >= 0 ? "+" : ""}${x.subtotal}</span></div>
+      ${x.palace ? `<div class="sub">${esc(x.palace.star || "")}${x.palace.star_wang ? "（" + esc(x.palace.star_wang) + "）" : ""} · ${esc(x.palace.door || "")}${x.palace.door_relation ? "（" + esc(x.palace.door_relation) + "）" : ""} · ${esc(x.palace.shen || "")}${x.palace.kong ? " · 空" : ""}${x.palace.ma ? " · 马" : ""}</div>` : ""}
+      ${x.factors.length ? `<ul class="factors">${x.factors.map(f => `<li class="${f.delta > 0 ? "plus" : "minus"}">${f.delta > 0 ? "+" : ""}${f.delta} ${esc(f.text)} <span class="src">${esc(f.source)}</span></li>`).join("")}</ul>` : `<div class="sub">${esc(x.note || "无要素")}</div>`}
+    </div>`).join("") +
+    `<h2>关键象</h2>` + it.key_points.map(k => `<div class="kp">${k.delta > 0 ? "+" : ""}${k.delta}
+       ${esc(k.role)}${k.gong ? " · " + PALACE[k.gong] : ""}：${esc(k.text)} <span class="src">${esc(k.source)}</span></div>`).join("") +
+    `<h2>注意</h2>` + it.caveats.map(c => `<div class="warn">· ${esc(c)}</div>`).join("") +
+    `<div class="card" style="margin-top:8px">
+      <div class="h">应期
+        <button class="mini" id="yq-toggle" type="button" onclick="toggleQYQ()">${yqBtnText()}</button>
+        <span class="sub">默认关闭；只显示《奇门法窍·论应期》可核对的条件</span>
+      </div>
+      <div id="yq-body" style="display:none;margin-top:6px"></div>
+    </div>` +
+    `<div class="ai"><h2>AI 解盘</h2>
+      <div class="ai-controls">
+        <input id="ai-ask" placeholder="补充所问（可选，如：这笔生意能否成交、何时有信）">
+        <button class="primary" id="ai-run">生成 AI 解盘</button>
+        <span class="sub" id="ai-status"></span>
+      </div>
+      <div id="ai-out" class="ai-out"></div>
+      <div class="sub">AI 会收到本盘规则数据（四柱/九宫/格局/断语/规则解盘）＋你的人设；密钥经本机服务转发，不落盘。默认不输出应期，明确追问才按《奇门法窍·论应期》回答。</div>
+    </div>`;
+  const runBtn = document.getElementById("ai-run");
+  if (runBtn) runBtn.onclick = runAI;
+  renderQYQ();
+
+  // 格局
+  const ge = c.ge_ju;
+  document.getElementById("pane-ge").innerHTML = ge.length ? `<table><tr><th>格局</th><th>宫</th><th>构成</th><th>出处</th><th>流派</th></tr>` +
+    ge.map(x => `<tr><td><span class="badge ${x.type === "吉" ? "ji" : "xiong"}">${esc(x.type || "")}</span> ${esc(x.name)}</td>
+      <td>${x.gong ? PALACE[x.gong] : "—"}</td><td>${esc(x.wu)}</td><td class="sub">${esc(x.source)}</td><td class="sub">${esc(x.pai || "")}</td></tr>`).join("") +
+    `</table>` : `<div class="panel">本盘未命中格局。</div>`;
+
+  // 断语
+  const groups = {干加干:[], 时干克应:[], 时加六干:[]};
+  for (const d of DATA.duan) (groups[d.kind] ||= []).push(d);
+  document.getElementById("pane-duan").innerHTML = Object.entries(groups).filter(([,v]) => v.length).map(([k,v]) =>
+    `<h2>${esc(k)}（${v.length}）</h2>` + v.map(d => `<div class="card">
+      <div class="h">${d.gong ? PALACE[d.gong] + " · " : ""}${esc(d.name)}</div>
+      <div>${esc(d.text)}</div><div class="s">${esc(d.source)} ${esc(d.level)}${d.note ? " ｜" + esc(d.note) : ""}</div></div>`).join("")
+  ).join("") || `<div class="panel">本盘无匹配断语。</div>`;
+
+  // 依据卡
+  document.getElementById("pane-ev").innerHTML = DATA.explain.map((x,i) => `<div class="card">
+    <div class="h">${i+1}. ${esc(x.label)}：${esc(x.value)}</div>
+    ${x.quote ? `<div class="q">原文：${esc(x.quote)}</div>` : ""}
+    <div class="s">${esc(x.source)} ${esc(x.level)}${x.pai ? " ｜" + esc(x.pai) : ""}</div></div>`).join("");
+
+  // 说明
+  const warn = c.warnings.map(w => `<div class="warn">⚠ ${esc(w)}</div>`).join("") || `<div class="sub">无流派警告。</div>`;
+  document.getElementById("pane-about").innerHTML = `<div class="panel">
+    ${warn}
+    <p class="sub">配置指纹：${esc(c.input.config_fingerprint)}　范围：时家奇门定局与排盘＋格局＋法窍断语；不含用神取用与法术。</p>
+    <p class="sub">规则出处见“依据卡”页；每条判断均带原文与分级。异说处按所选流派输出。</p></div>`;
+
+  document.getElementById("foot").innerHTML =
+    `配置：${Object.entries(c.input.config).map(([k,v]) => `${k}=${v}`).join(" · ")}`;
+}
+
+document.getElementById("tabs").addEventListener("click", e => {
+  const t = e.target.closest(".tab"); if (!t) return;
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === t));
+  document.querySelectorAll(".pane").forEach(p => p.classList.toggle("on", p.id === "pane-" + t.dataset.p));
+});
+document.getElementById("now").onclick = () => { document.getElementById("dt").value = nowLocal(); load(); };
+document.getElementById("run").onclick = load;
+document.getElementById("copy").onclick = async () => {
+  try{ await navigator.clipboard.writeText(JSON.stringify(DATA, null, 1));
+       document.getElementById("copy").textContent = "已复制"; setTimeout(()=>document.getElementById("copy").textContent="复制 JSON",1200); }
+  catch(e){ alert("复制失败：" + e.message); }
+};
+for (const id of ["ding_ju","jigong","bushen","shen_bufa","menpo","day_boundary","tst","lon","question"])
+  document.getElementById(id).addEventListener("change", load);
+
+// ---------- AI 配置 ----------
+const AI_KEY = "qm-ai-cfg";
+const DEFAULT_PERSONA = "你是一位严谨的奇门遁甲解盘师，熟悉《御定奇门宝鉴》《遁甲演义》《奇门法窍》。\n"
+  + "要求：\n1. 只依据给出的盘面与规则数据，不得臆造盘面或原文；\n"
+  + "2. 区分「盘面事实」「规则推断」「个人判断」，注明依据；\n"
+  + "3. 按五段输出：盘面要点 / 用神与落宫 / 吉凶倾向 / 结构与建议 / 不确定处；\n"
+  + "4. 用词克制，不给绝对结论；遇流派差异要说明；\n5. 不引用未给出的古籍原文。";
+const QM_AI_RULES = "【硬性规则】只依据给出的盘面与规则数据作答，不得臆造盘面、原文或应期。" +
+  "默认不输出应期/具体时间；只有用户本轮明确问“应期/何时/多久/哪年/日期”等，才可按给出的应期规则回答，并逐条注出处与不确定性。";
+function aiCfg(){
+  try{ return JSON.parse(localStorage.getItem(AI_KEY) || "{}"); }catch(e){ return {}; }
+}
+function fillAi(){
+  const c = aiCfg();
+  document.getElementById("ai-base").value = c.base_url || "";
+  document.getElementById("ai-key").value = c.api_key || "";
+  document.getElementById("ai-model").value = c.model || "";
+  document.getElementById("ai-temp").value = c.temperature == null ? 0.6 : c.temperature;
+  document.getElementById("ai-persona").value = c.persona || DEFAULT_PERSONA;
+  document.getElementById("ai-state").textContent = c.base_url ? "已保存配置（本机浏览器）" : "未配置；可填任意 OpenAI 兼容接口";
+}
+function readAi(){
+  return { base_url: document.getElementById("ai-base").value.trim(),
+           api_key: document.getElementById("ai-key").value.trim(),
+           model: document.getElementById("ai-model").value.trim() || "gpt-4o-mini",
+           temperature: parseFloat(document.getElementById("ai-temp").value || "0.6"),
+           persona: document.getElementById("ai-persona").value.trim() || DEFAULT_PERSONA };
+}
+document.getElementById("ai-save").onclick = () => {
+  localStorage.setItem(AI_KEY, JSON.stringify(readAi()));
+  document.getElementById("ai-state").textContent = "已保存（本机浏览器）";
+};
+document.getElementById("ai-clear").onclick = () => {
+  localStorage.removeItem(AI_KEY); fillAi();
+  document.getElementById("ai-state").textContent = "已清除";
+};
+document.getElementById("ai-test").onclick = async () => {
+  const c = readAi();
+  const st = document.getElementById("ai-state");
+  if (!c.base_url){ st.textContent = "请先填接口地址"; return; }
+  st.textContent = "测试中…";
+  try{
+    const txt = await callAI(c, [{role:"user", content:"只回复两个字：可用"}], true);
+    st.textContent = "连接成功：" + (txt.slice(0,40) || "（空响应）");
+  }catch(e){ st.textContent = "失败：" + e.message; }
+};
+fillAi();
+
+// ---------- AI 解盘 ----------
+function buildPrompt(extra, allow){
+  const c = DATA.chart, t = c.term, it = DATA.interpret;
+  const f = c.four_pillars;
+  const cells = Object.entries(c.cells).map(([g,x]) => {
+    const door = x.door ? (x.door.name + (x.door.relation ? "(" + x.door.relation + ")" : "")) : "-";
+    const star = x.star ? (x.star.name + "(" + (x.star.wx || "") + (x.star.wang || "") + ")") : "-";
+    return g + "宫 " + PALACE[g] + "：神" + (x.shen || "-") + "｜星" + star
+      + "｜天盘" + ((x.tian_gan||[]).join("/") || "-") + "｜地盘" + ((x.di_gan||[]).join("/") || "-")
+      + "｜门" + door + (x.kong?"｜空":"") + (x.ma?"｜马":"");
+  }).join("\n");
+  const ge = c.ge_ju.map(x => x.name + "(" + (x.gong || "-") + "宫," + x.wu + "," + (x.type || "") + ")").join("；") || "无";
+  const duan = DATA.duan.map(x => "[" + x.kind + "]" + (x.gong ? PALACE[x.gong] + " " : "") + x.name + "：" + x.text).join("\n");
+  const ys = it.yong_shen.map(x => x.role + "@" + (x.gong ? PALACE[x.gong] : "-") + "(" + (x.subtotal >= 0 ? "+" : "") + x.subtotal + ")："
+      + (x.factors.length ? x.factors.map(y => (y.delta > 0 ? "+" : "") + y.delta + y.text).join("、") : "无要素")).join("\n");
+  return [
+    "【时间】" + c.input.time,
+    "【四柱】" + f.year + "年 " + f.month + "月 " + f.day + "日 " + f.hour + "时",
+    "【节气/定局】" + (t.current_term || t.term) + "；" + t.dun + "遁" + t.ju + "局（" + t.ju_term + t.yuan + "元）；"
+      + t.state + (t.run ? "·闰奇" : "") + "；符头 " + t.futou_gz,
+    "【值符值使】值符" + c.zhi_fu.star + "（" + PALACE[c.zhi_fu.home_gong] + "→" + (PALACE[c.zhi_fu.add_to_gong] || "-") + "）；值使"
+      + c.zhi_shi.door + "（" + PALACE[c.zhi_shi.home_gong] + "→" + (PALACE[c.zhi_shi.add_to_gong] || "-") + "）",
+    "【旬空/马星】" + c.xun_kong.xun + "旬空" + c.xun_kong.kong.join("、") + "；马星" + c.ma_xing,
+    "【九宫】\n" + cells,
+    "【格局】" + ge,
+    "【断语】\n" + duan,
+    "【规则解盘】" + it.question + "：" + it.verdict.level + "（" + (it.verdict.score >= 0 ? "+" : "") + it.verdict.score + "，" + it.verdict.basis + "）\n" + ys,
+    (allow && window.YQ ? "【应期数据】\n" + YQ.plain(DATA.yingqi) : "【应期】本轮用户未明确要求，不要输出应期或具体时间。"),
+    "【占问】" + it.question + (extra ? "；补充：" + extra : ""),
+  ].join("\n");
+}
+async function callAI(cfg, messages, noStream){
+  const r = await fetch("api/ai", { method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ base_url: cfg.base_url, api_key: cfg.api_key, model: cfg.model,
+                           temperature: cfg.temperature, messages: messages, stream: !noStream }) });
+  if (!r.ok){
+    let msg = "HTTP " + r.status;
+    try{ const j = await r.json(); if (j.error) msg = j.error; }catch(e){}
+    throw new Error(msg);
+  }
+  if (noStream) return await r.text();
+  return r;
+}
+async function runAI(){
+  const c = readAi();
+  const st = document.getElementById("ai-status");
+  const out = document.getElementById("ai-out");
+  if (!c.base_url){ st.textContent = "请先在顶部填 AI 配置"; return; }
+  const askEl = document.getElementById("ai-ask");
+  const ask = askEl ? askEl.value : "";
+  const allow = window.YQ ? YQ.explicit(ask) : false;
+  st.textContent = "生成中…"; out.textContent = "";
+  const sys = c.persona + "\n" + QM_AI_RULES + "\n" + (window.YQ ? YQ.aiRule(allow) : "");
+  const messages = [{role:"system", content: sys}, {role:"user", content: buildPrompt(ask, allow)}];
+  try{
+    const r = await callAI(c, messages, false);
+    const reader = r.body.getReader();
+    const dec = new TextDecoder("utf-8");
+    let buf = "", text = "";
+    while (true){
+      const step = await reader.read();
+      if (step.done) break;
+      buf += dec.decode(step.value, {stream: true});
+      const lines = buf.split("\n"); buf = lines.pop();
+      for (const line of lines){
+        const s = line.trim();
+        if (!s.startsWith("data:")) continue;
+        const data = s.slice(5).trim();
+        if (data === "[DONE]") continue;
+        try{
+          const j = JSON.parse(data);
+          const d = j.choices && j.choices[0] && (j.choices[0].delta || j.choices[0].message);
+          if (d && d.content){
+            text += d.content; out.textContent = text;
+            out.scrollTop = out.scrollHeight;
+          }
+        }catch(e){}
+      }
+    }
+    st.textContent = text ? "完成" : "完成（无内容）";
+  }catch(e){
+    st.textContent = "失败";
+    out.textContent = "AI 调用失败：" + e.message;
+  }
+}
+
+document.getElementById("dt").value = nowLocal();
+load();
+</script>
+</body>
+</html>

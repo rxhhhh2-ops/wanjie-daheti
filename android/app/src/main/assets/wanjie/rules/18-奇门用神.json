@@ -1,0 +1,99 @@
+{
+ "meta": {
+  "name": "奇门遁甲·用神表（解盘用）",
+  "version": "2026-10-29",
+  "note": "按占问类型给出用神。日干＝求测人、时干＝所测事为通例；其余为通行取用，原文无统一表，按流派可调。level 标注依据强度。",
+  "levels": ["[原文]", "[通行]"]
+ },
+ "questions": {
+  "通用": {
+   "label": "通用（人/事）",
+   "yong_shen": [
+    {"role": "日干（求测人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例：日干为人"},
+    {"role": "时干（所测事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例：时干为事"}
+   ]
+  },
+  "求财": {
+   "label": "求财",
+   "yong_shen": [
+    {"role": "日干（求测人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（财事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "生门（财门）", "type": "door", "target": "生门", "level": "[通行]", "source": "三吉门取象；财以生门"},
+    {"role": "戊（财）", "type": "gan", "target": "戊", "level": "[通行]", "source": "戊为财仪（通行）"}
+   ]
+  },
+  "婚姻": {
+   "label": "婚姻",
+   "yong_shen": [
+    {"role": "日干（求测人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（婚姻事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "乙（女）", "type": "gan", "target": "乙", "level": "[通行]", "source": "乙为日奇，婚姻取乙庚"},
+    {"role": "庚（男）", "type": "gan", "target": "庚", "level": "[通行]", "source": "庚为太白，婚姻取乙庚"},
+    {"role": "六合（媒合）", "type": "shen", "target": "六合", "level": "[通行]", "source": "六合主和合"}
+   ]
+  },
+  "疾病": {
+   "label": "疾病",
+   "yong_shen": [
+    {"role": "日干（病人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "天芮（病神）", "type": "star", "target": "天芮", "level": "[通行]", "source": "天芮主病（九星取象）"},
+    {"role": "死门（病门）", "type": "door", "target": "死门", "level": "[通行]", "source": "死门主死丧疾病"},
+    {"role": "白虎（凶神）", "type": "shen", "target": "白虎", "level": "[通行]", "source": "白虎主伤病"}
+   ]
+  },
+  "官讼": {
+   "label": "官讼",
+   "yong_shen": [
+    {"role": "日干（求测人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（讼事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "开门（官府）", "type": "door", "target": "开门", "level": "[通行]", "source": "开门主官"},
+    {"role": "惊门（讼）", "type": "door", "target": "惊门", "level": "[通行]", "source": "惊门主惊恐讼事"},
+    {"role": "朱雀（口舌）", "type": "shen", "target": "朱雀", "level": "[通行]", "source": "朱雀主口舌文书"}
+   ]
+  },
+  "出行": {
+   "label": "出行",
+   "yong_shen": [
+    {"role": "日干（行人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（行程）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "开门（出路）", "type": "door", "target": "开门", "level": "[通行]", "source": "开门主出行"},
+    {"role": "驿马", "type": "ma", "target": "马", "level": "[原文]", "source": "马星主行动（三合驿马）"}
+   ]
+  },
+  "失物": {
+   "label": "失物/盗贼",
+   "yong_shen": [
+    {"role": "日干（失主）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（失物事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "玄武（盗神）", "type": "shen", "target": "玄武", "level": "[通行]", "source": "玄武主盗"},
+    {"role": "杜门（藏匿）", "type": "door", "target": "杜门", "level": "[通行]", "source": "杜门主隐藏"}
+   ]
+  },
+  "考试": {
+   "label": "考试/文书",
+   "yong_shen": [
+    {"role": "日干（考生）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（考事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "天辅（文星）", "type": "star", "target": "天辅", "level": "[通行]", "source": "天辅主文"},
+    {"role": "景门（文书）", "type": "door", "target": "景门", "level": "[通行]", "source": "景门主文书"}
+   ]
+  },
+  "谋事": {
+   "label": "谋事/求职",
+   "yong_shen": [
+    {"role": "日干（求测人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例"},
+    {"role": "时干（谋事）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "奇门通例"},
+    {"role": "开门（事业）", "type": "door", "target": "开门", "level": "[通行]", "source": "开门主事业"},
+    {"role": "值符（主事）", "type": "shen", "target": "值符", "level": "[原文]", "source": "宝鉴003：天乙常随甲而加时干，主事之宰"}
+   ]
+  },
+  "家宅": {
+   "label": "家宅",
+   "yong_shen": [
+    {"role": "日干（人）", "type": "gan", "target": "DAY", "level": "[通行]", "source": "奇门通例：日干为人"},
+    {"role": "时干（宅）", "type": "gan", "target": "HOUR", "level": "[通行]", "source": "家宅取时干为宅（通行）"},
+    {"role": "生门（宅气）", "type": "door", "target": "生门", "level": "[通行]", "source": "生门主生养"}
+   ]
+  }
+ }
+}

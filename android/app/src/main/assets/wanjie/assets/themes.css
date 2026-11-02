@@ -1,0 +1,404 @@
+/* =====================================================================
+   万界大合体 · 主题系统（themes.css）
+   六套主题：swiss 瑞士简约 / bauhaus 包豪斯 / construct 构成主义 /
+            minimal 极简主义 / newwave 新浪潮排印 / ink 留白水墨
+   设计语言参考 D:\skill\open-design-main：
+   - 瑞士国际主义（16 列网格、单一饱和 accent、只用直角、hairline）
+   - 极简主义规范（暖调单色、editorial serif、超轻边框）
+   - kami 纸本编辑系统（羊皮纸底、单一 accent ≤5%、衬线层级）
+   主题只改"外壳"（底色/字体/边框/圆角/阴影/标题/按钮/布局装饰），
+   不改盘面语义色（五行、四化、吉凶、体用等），保证功能与可读性。
+   ===================================================================== */
+
+/* ---------- 主题令牌（默认 = 瑞士简约） ---------- */
+:root{
+  --t-bg:#fafaf8; --t-bg-2:#f1f0ec; --t-surface:#ffffff; --t-surface-2:#f0efeb;
+  --t-fg:#0a0a0a; --t-fg-2:#3a3a36; --t-muted:#71716b;
+  --t-line:#0a0a0a; --t-line-soft:#dededa;
+  --t-accent:#002FA7; --t-accent-fg:#ffffff; --t-accent-soft:#e4eaf6;
+  --t-accent-2:#002FA7; --t-accent-3:#0a0a0a;
+  --t-radius:0px; --t-radius-s:0px;
+  --t-shadow:none; --t-shadow-pop:0 8px 24px rgba(10,10,10,.14);
+  --t-font-display:"Helvetica Neue",Helvetica,Arial,"Noto Sans SC","Microsoft YaHei",sans-serif;
+  --t-font-body:"Helvetica Neue",Helvetica,Arial,"Noto Sans SC","Microsoft YaHei",sans-serif;
+  --t-font-mono:"Consolas","JetBrains Mono","SF Mono",monospace;
+  --t-heading-track:-0.01em; --t-label-track:.14em; --t-display-weight:800;
+  color-scheme:light;
+}
+
+html[data-theme="swiss"]{
+  --t-bg:#fafaf8; --t-bg-2:#f1f0ec; --t-surface:#ffffff; --t-surface-2:#f0efeb;
+  --t-fg:#0a0a0a; --t-fg-2:#3a3a36; --t-muted:#71716b;
+  --t-line:#0a0a0a; --t-line-soft:#dededa;
+  --t-accent:#002FA7; --t-accent-fg:#ffffff; --t-accent-soft:#e4eaf6;
+  --t-accent-2:#002FA7; --t-accent-3:#0a0a0a;
+  --t-radius:0px; --t-radius-s:0px;
+  --t-shadow:none; --t-shadow-pop:0 8px 24px rgba(10,10,10,.14);
+  --t-font-display:"Helvetica Neue",Helvetica,Arial,"Noto Sans SC","Microsoft YaHei",sans-serif;
+  --t-font-body:"Helvetica Neue",Helvetica,Arial,"Noto Sans SC","Microsoft YaHei",sans-serif;
+  --t-font-mono:"Consolas","JetBrains Mono","SF Mono",monospace;
+  --t-heading-track:-0.01em; --t-label-track:.14em; --t-display-weight:800;
+}
+
+html[data-theme="bauhaus"]{
+  --t-bg:#f2efe6; --t-bg-2:#e9e5d8; --t-surface:#fffdf6; --t-surface-2:#ebe7da;
+  --t-fg:#161513; --t-fg-2:#3d3b36; --t-muted:#79756a;
+  --t-line:#161513; --t-line-soft:#cfcabb;
+  --t-accent:#2456a4; --t-accent-fg:#ffffff; --t-accent-soft:#dce6f3;
+  --t-accent-2:#d3402c; --t-accent-3:#f0b429;
+  --t-radius:0px; --t-radius-s:0px;
+  --t-shadow:5px 5px 0 rgba(22,21,19,.9); --t-shadow-pop:6px 6px 0 rgba(22,21,19,.9);
+  --t-font-display:"Century Gothic","Futura","Trebuchet MS","Microsoft YaHei",sans-serif;
+  --t-font-body:"Trebuchet MS","Segoe UI","Microsoft YaHei",sans-serif;
+  --t-font-mono:"Consolas",monospace;
+  --t-heading-track:.02em; --t-label-track:.1em; --t-display-weight:800;
+}
+
+html[data-theme="construct"]{
+  --t-bg:#ece7da; --t-bg-2:#e2dcc9; --t-surface:#f8f4ea; --t-surface-2:#e7e1d0;
+  --t-fg:#15120e; --t-fg-2:#3c372f; --t-muted:#7a7365;
+  --t-line:#15120e; --t-line-soft:#c9c2ae;
+  --t-accent:#c8321e; --t-accent-fg:#fdf6ec; --t-accent-soft:#f0d5cd;
+  --t-accent-2:#15120e; --t-accent-3:#c8321e;
+  --t-radius:0px; --t-radius-s:0px;
+  --t-shadow:none; --t-shadow-pop:4px 4px 0 rgba(21,18,14,.9);
+  --t-font-display:"Arial Narrow","Impact","Haettenschweiler","SimHei","Microsoft YaHei",sans-serif;
+  --t-font-body:"Segoe UI","Microsoft YaHei",sans-serif;
+  --t-font-mono:"Consolas",monospace;
+  --t-heading-track:.03em; --t-label-track:.18em; --t-display-weight:900;
+}
+
+html[data-theme="minimal"]{
+  --t-bg:#fbfbfa; --t-bg-2:#f4f4f1; --t-surface:#ffffff; --t-surface-2:#f6f6f3;
+  --t-fg:#1f2023; --t-fg-2:#45464a; --t-muted:#8b8b86;
+  --t-line:#1f2023; --t-line-soft:#e7e7e3;
+  --t-accent:#234a6b; --t-accent-fg:#ffffff; --t-accent-soft:#e9eff4;
+  --t-accent-2:#234a6b; --t-accent-3:#1f2023;
+  --t-radius:10px; --t-radius-s:6px;
+  --t-shadow:none; --t-shadow-pop:0 10px 30px rgba(20,20,20,.09);
+  --t-font-display:Georgia,"Songti SC","STSong","SimSun",serif;
+  --t-font-body:"Segoe UI","Helvetica Neue","Microsoft YaHei",sans-serif;
+  --t-font-mono:"Consolas","SF Mono",monospace;
+  --t-heading-track:-0.01em; --t-label-track:.22em; --t-display-weight:500;
+}
+
+html[data-theme="newwave"]{
+  --t-bg:#fdfcf7; --t-bg-2:#f4f2ea; --t-surface:#ffffff; --t-surface-2:#f6f4ec;
+  --t-fg:#101014; --t-fg-2:#3c3c46; --t-muted:#73737e;
+  --t-line:#101014; --t-line-soft:#dcdbe2;
+  --t-accent:#ff3eb5; --t-accent-fg:#ffffff; --t-accent-soft:#ffe0f1;
+  --t-accent-2:#00b8d9; --t-accent-3:#ffd500;
+  --t-radius:0px; --t-radius-s:0px;
+  --t-shadow:5px 5px 0 #101014; --t-shadow-pop:6px 6px 0 #101014;
+  --t-font-display:Georgia,"Times New Roman","Songti SC","SimSun",serif;
+  --t-font-body:"Segoe UI","Microsoft YaHei",sans-serif;
+  --t-font-mono:"Consolas","Courier New",monospace;
+  --t-heading-track:0em; --t-label-track:.12em; --t-display-weight:700;
+}
+
+html[data-theme="ink"]{
+  --t-bg:#f5f4ed; --t-bg-2:#eeede3; --t-surface:#faf9f5; --t-surface-2:#f0efe6;
+  --t-fg:#141413; --t-fg-2:#3d3d3a; --t-muted:#6b6a64;
+  --t-line:#3a3833; --t-line-soft:#e0ddd0;
+  --t-accent:#a03a2a; --t-accent-fg:#f8ecd9; --t-accent-soft:#f2e3da;
+  --t-accent-2:#1B365D; --t-accent-3:#141413;
+  --t-radius:3px; --t-radius-s:2px;
+  --t-shadow:0 6px 22px rgba(45,40,30,.07); --t-shadow-pop:0 10px 28px rgba(45,40,30,.13);
+  --t-font-display:"STKaiti","KaiTi","Kaiti SC","Songti SC","SimSun",serif;
+  --t-font-body:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --t-font-mono:"Consolas",monospace;
+  --t-heading-track:.08em; --t-label-track:.3em; --t-display-weight:700;
+}
+
+/* ---------- 全局交互反馈：按压态与键盘焦点（六主题通用） ---------- */
+html[data-theme] button:not(:disabled){
+  transition:transform .12s ease, filter .15s ease, border-color .15s ease, background-color .15s ease;
+}
+html[data-theme] button:not(:disabled):active{transform:translateY(1px) scale(.995)}
+html[data-theme] button:disabled{opacity:.55; cursor:not-allowed}
+html[data-theme] a:focus-visible,
+html[data-theme] button:focus-visible,
+html[data-theme] input:focus-visible,
+html[data-theme] select:focus-visible{
+  outline:2px solid var(--t-accent); outline-offset:2px;
+}
+
+/* ---------- 全局层级令牌（导航 / 遮罩弹窗 / 下拉 / 提示） ---------- */
+:root{
+  --z-nav:100;        /* 全局吸顶导航 */
+  --z-overlay:250;    /* 各工具页全屏遮罩弹窗 */
+  --z-pop:300;        /* 统一 AI 配置弹层 */
+  --z-toast:400;      /* 预留：轻提示 */
+}
+
+/* ---------- 各工具页的旧变量 → 主题令牌映射（按页别名） ---------- */
+html[data-theme]{
+  /* 四柱（--ink/--paper/--card/--line/--muted） */
+  --paper:var(--t-bg); --card:var(--t-surface); --line:var(--t-line-soft);
+  /* 梅花（--bg/--card/--ink/--muted/--line/--gold/--gold-soft） */
+  --bg:var(--t-bg); --ink:var(--t-fg); --muted:var(--t-muted);
+  --gold:var(--t-accent); --gold-soft:var(--t-accent-soft);
+  /* 奇门 / 六壬（--bg|--background、--fg、--card、--muted=浅填充、--border、--accent=浅填充、--primary=accent） */
+  --background:var(--t-bg); --foreground:var(--t-fg);
+  --card-foreground:var(--t-fg); --muted-fg:var(--t-muted); --muted-foreground:var(--t-muted);
+  --border:var(--t-line-soft); --input:var(--t-line-soft);
+  --accent:var(--t-surface-2); --accent-foreground:var(--t-fg);
+  --primary:var(--t-accent); --primary-fg:var(--t-accent-fg);
+  --popover:var(--t-surface); --popover-foreground:var(--t-fg);
+  /* 紫微（--bg/--cell/--center/--line/--ming/--major/--minor/--adj） */
+  --cell:var(--t-surface); --center:var(--t-surface-2); --ming:var(--t-accent);
+  --major:var(--t-fg); --minor:var(--t-fg-2); --adj:var(--t-muted);
+}
+/* 注意：--muted 在奇门/六壬里是"浅色填充"，在四柱/梅花里是"弱文字"，分页覆盖 */
+html[data-page="bazi"] , html[data-page="meihua"]{ --muted:var(--t-muted); }
+html[data-page="qimen"] , html[data-page="liuren"]{ --muted:var(--t-surface-2); }
+
+/* ---------- 通用外壳（全部主题共享，取值随主题变） ---------- */
+html[data-theme] body{
+  background:var(--t-bg); color:var(--t-fg);
+  font-family:var(--t-font-body);
+}
+html[data-theme] h1,html[data-theme] h2,html[data-theme] h3{
+  font-family:var(--t-font-display);
+  color:var(--t-fg);
+  letter-spacing:var(--t-heading-track);
+}
+html[data-theme] input,html[data-theme] select,html[data-theme] textarea{
+  background:var(--t-surface); color:var(--t-fg);
+  border:1px solid var(--t-line-soft);
+  border-radius:var(--t-radius-s);
+}
+html[data-theme] .panel,html[data-theme] .card{
+  background:var(--t-surface);
+  border:1px solid var(--t-line-soft);
+  border-radius:var(--t-radius);
+  box-shadow:var(--t-shadow);
+}
+html[data-theme] .modalbox,html[data-theme] .tooltip{
+  background:var(--t-surface); color:var(--t-fg);
+  border:1px solid var(--t-line-soft);
+  border-radius:var(--t-radius);
+}
+html[data-theme] .modal{background:rgba(20,18,14,.45)}
+
+/* ---------- 主题气质：面板 / 边框 / 标题装饰 ---------- */
+/* 瑞士：直角 + 全黑 hairline + accent 索引条 */
+html[data-theme="swiss"] .panel,html[data-theme="swiss"] .card{
+  border:1px solid var(--t-fg); border-radius:0; box-shadow:none;
+}
+html[data-theme="swiss"] .panel h2{border-left-color:var(--t-accent)}
+html[data-theme="swiss"] header{border-bottom:2px solid var(--t-fg)}
+
+/* 包豪斯：粗黑边 + 硬投影 + 几何色块 */
+html[data-theme="bauhaus"] .panel,html[data-theme="bauhaus"] .card{
+  border:3px solid var(--t-fg);
+  box-shadow:5px 5px 0 rgba(22,21,19,.9);
+}
+html[data-theme="bauhaus"] .panel h2::before{
+  content:""; display:inline-block; width:10px; height:10px;
+  background:var(--t-accent); margin-right:8px; vertical-align:1px;
+}
+
+/* 构成主义：2px 黑边 + 红色块标题 + 加宽字距 */
+html[data-theme="construct"] .panel,html[data-theme="construct"] .card{
+  border:2px solid var(--t-fg); border-radius:0; box-shadow:none;
+}
+html[data-theme="construct"] h1::after{
+  content:""; display:inline-block; width:42px; height:9px;
+  background:var(--t-accent); margin-left:12px; vertical-align:baseline;
+}
+html[data-theme="construct"] h2{letter-spacing:.14em}
+
+/* 极简：发丝边 + 无投影 */
+html[data-theme="minimal"] .panel,html[data-theme="minimal"] .card{
+  border:1px solid var(--t-line-soft); border-radius:10px; box-shadow:none;
+}
+
+/* 新浪潮：2px 黑边 + 硬偏移投影 */
+html[data-theme="newwave"] .panel,html[data-theme="newwave"] .card{
+  border:2px solid var(--t-fg); border-radius:0;
+  box-shadow:5px 5px 0 var(--t-fg);
+}
+html[data-theme="newwave"] h1{transform:skewX(-3deg)}
+
+/* 水墨：羊皮纸 + 淡墨晕染 + 印章 accent */
+html[data-theme="ink"] body{
+  background-image:
+    radial-gradient(640px 420px at 82% 6%, rgba(47,46,43,.055), transparent 62%),
+    radial-gradient(520px 400px at 10% 88%, rgba(47,46,43,.05), transparent 60%);
+}
+html[data-theme="ink"] .panel,html[data-theme="ink"] .card{
+  border:1px solid var(--t-line-soft);
+  box-shadow:0 6px 22px rgba(45,40,30,.06);
+}
+
+/* ---------- 四柱页（bazi）专属换肤 ---------- */
+html[data-theme] header{
+  background:var(--t-surface); color:var(--t-fg);
+  border-bottom:1px solid var(--t-line-soft);
+  box-shadow:none;
+}
+html[data-theme] header h1{color:var(--t-fg)}
+html[data-theme] header label{color:var(--t-muted)}
+html[data-theme] header button:not([class]),
+html[data-theme] .modalbox button:not([class]){
+  background:var(--t-accent); color:var(--t-accent-fg);
+  border:none; border-radius:var(--t-radius-s); font-weight:700;
+}
+html[data-theme] header button:not([class]):hover{filter:brightness(1.06)}
+html[data-theme] .dtbtn{
+  background:var(--t-fg); color:var(--t-bg);
+  border:1px solid var(--t-fg); border-radius:var(--t-radius-s);
+}
+html[data-theme] .ghost{
+  background:var(--t-surface-2); color:var(--t-fg);
+  border:1px solid var(--t-line-soft);
+}
+html[data-theme] .mini{
+  background:var(--t-surface-2); color:var(--t-fg);
+  border:1px solid var(--t-line-soft);
+}
+html[data-theme] .mhead button{background:none;border:none;color:var(--t-muted)}
+html[data-theme] .ybar button,
+html[data-theme] .ygrid button,html[data-theme] .mgrid button,html[data-theme] .dgrid button{
+  background:var(--t-surface); color:var(--t-fg);
+  border:1px solid var(--t-line-soft); font-weight:normal;
+  border-radius:var(--t-radius-s);
+}
+html[data-theme] .ygrid button.sel,html[data-theme] .mgrid button.sel,html[data-theme] .dgrid button.sel{
+  background:var(--t-accent); color:var(--t-accent-fg); font-weight:700;
+}
+html[data-theme] .dgrid button.today{outline:1px dashed var(--t-accent)}
+html[data-theme] .chip{
+  background:var(--t-surface-2); border:1px solid var(--t-line-soft); color:var(--t-fg-2);
+}
+html[data-theme] table.qz th{background:var(--t-surface-2); color:var(--t-fg)}
+html[data-theme] table.qz td{border-color:var(--t-line-soft)}
+html[data-theme] table.flow td,html[data-theme] table.flow th{border-color:var(--t-line-soft)}
+html[data-theme] table.flow td.rule{color:var(--t-muted)}
+html[data-theme] .dy{background:var(--t-surface); border-color:var(--t-line-soft)}
+html[data-theme] .pm{background:var(--t-surface); border-color:var(--t-line-soft)}
+html[data-theme] .kv b,html[data-theme] .pmhead b,html[data-theme] .pm .lab{color:var(--t-fg-2)}
+html[data-theme] .big,html[data-theme] .acc h3{color:var(--t-accent)}
+html[data-theme] .info{color:var(--t-fg-2)}
+html[data-theme] .note,html[data-theme] .dishi,html[data-theme] .shishen,
+html[data-theme] .shensha,html[data-theme] .dow span{color:var(--t-muted)}
+
+/* ---------- 梅花页（meihua）专属换肤 ---------- */
+html[data-theme] .wy-chip,html[data-theme] .hist-item button{
+  background:var(--t-surface); color:var(--t-fg); border-color:var(--t-line-soft);
+}
+html[data-theme] .ai-out{background:var(--t-surface-2); border-color:var(--t-line-soft)}
+html[data-theme] .status{color:var(--t-muted)}
+html[data-theme] .hist-item .h-main b{color:var(--t-accent)}
+
+/* ---------- 紫微页（ziwei）专属换肤 ---------- */
+html[data-page="ziwei"] h1{color:var(--t-fg)}
+html[data-theme] #controls{background:var(--t-surface); border-color:var(--t-line-soft)}
+html[data-theme] #controls .grp{color:var(--t-fg-2)}
+html[data-theme] #controls button{
+  background:var(--t-accent); color:var(--t-accent-fg);
+  border:1px solid transparent; border-radius:var(--t-radius-s);
+}
+html[data-theme] #controls button.ghost{
+  background:var(--t-surface); color:var(--t-accent); border:1px solid var(--t-accent);
+}
+html[data-theme] .p-top{color:var(--t-fg-2); border-bottom-color:var(--t-line-soft)}
+html[data-theme] .p-top .dec{color:var(--t-muted)}
+html[data-theme] .p-name{color:var(--t-fg-2)}
+html[data-theme] .jie,html[data-theme] sup{color:var(--t-muted)}
+html[data-theme] .palace{background:var(--t-surface); border-color:var(--t-line-soft)}
+html[data-theme] #center{background:var(--t-surface-2); border-color:var(--t-line-soft)}
+html[data-theme] .palace.body-palace{background:var(--t-accent-soft)}
+html[data-page="ziwei"] h1{text-align:center}
+
+/* ---------- 奇门 / 六壬补充 ---------- */
+html[data-theme] .sub{color:var(--t-muted)}
+html[data-theme] .subline{color:var(--t-muted)}
+html[data-theme] details summary{color:var(--t-muted)}
+html[data-theme] .btn:hover,html[data-theme] button:hover{border-color:var(--t-accent)}
+html[data-theme] button.primary,html[data-theme] .btn-primary{
+  background:var(--t-accent); color:var(--t-accent-fg); border-color:var(--t-accent);
+}
+html[data-theme] button.primary:hover,html[data-theme] .btn-primary:hover{filter:brightness(1.06)}
+
+/* ---------- 六壬标题（原本无 h1，仅 h3） ---------- */
+html[data-page="liuren"] body > h3{
+  font-size:19px; margin:4px 0 10px; letter-spacing:.12em;
+}
+
+/* ---------- 统一 AI 配置中心 ---------- */
+#suite-nav .sn-ai-btn{
+  flex:0 0 auto; height:30px; padding:5px 12px;
+  font-family:var(--t-font-mono); font-size:11.5px; letter-spacing:.14em;
+  color:var(--t-fg-2); background:var(--t-surface); cursor:pointer;
+  border:1px solid var(--t-line-soft); border-radius:var(--t-radius-s);
+}
+#suite-nav .sn-ai-btn:hover{border-color:var(--t-accent); color:var(--t-fg)}
+
+.sai-entry{
+  margin-left:auto; margin-right:14px; padding:6px 13px;
+  font-family:var(--t-font-body); font-size:12px; letter-spacing:.1em;
+  color:var(--t-fg-2); background:var(--t-surface); cursor:pointer;
+  border:1px solid var(--t-line-soft); border-radius:var(--t-radius-s);
+}
+.sai-entry:hover{border-color:var(--t-accent); color:var(--t-fg)}
+
+.sai-modal{
+  position:fixed; inset:0; z-index:300; padding:16px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(24,20,14,.46);
+}
+.sai-modal[hidden]{display:none}
+.sai-box{
+  width:100%; max-width:470px;
+  background:var(--t-surface); color:var(--t-fg);
+  border:1px solid var(--t-line-soft); border-radius:var(--t-radius);
+  box-shadow:var(--t-shadow-pop); padding:18px 20px 14px;
+  font-family:var(--t-font-body);
+}
+.sai-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:7px}
+.sai-head b{font-family:var(--t-font-display); font-size:16px; letter-spacing:.1em; color:var(--t-fg)}
+.sai-x{background:none; border:none; color:var(--t-muted); font-size:16px; cursor:pointer; padding:0 4px}
+.sai-x:hover{color:var(--t-fg)}
+.sai-note{margin:0 0 8px; font-size:11.5px; line-height:1.75; color:var(--t-muted)}
+.sai-box label{display:block; margin:9px 0 3px; font-size:11.5px; color:var(--t-muted)}
+.sai-box input{
+  width:100%; box-sizing:border-box; font:inherit; font-size:13px;
+  padding:7px 9px; border:1px solid var(--t-line-soft); border-radius:var(--t-radius-s);
+  background:var(--t-surface); color:var(--t-fg);
+}
+.sai-box input:focus{outline:none; border-color:var(--t-accent)}
+.sai-status{min-height:18px; margin-top:9px; font-size:11.5px; line-height:1.6; color:var(--t-muted)}
+.sai-status.ok{color:#2e7d4f}
+.sai-status.err{color:#a12b1e}
+.sai-actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.sai-actions button{
+  font:inherit; font-size:12.5px; padding:7px 13px; cursor:pointer;
+  border:1px solid var(--t-line-soft); border-radius:var(--t-radius-s);
+  background:var(--t-surface-2); color:var(--t-fg);
+}
+.sai-actions button:hover{border-color:var(--t-accent)}
+.sai-actions button.primary{background:var(--t-accent); border-color:var(--t-accent); color:var(--t-accent-fg)}
+.sai-actions button.primary:hover{filter:brightness(1.06)}
+.sai-foot{margin:10px 0 0; text-align:right; font-size:10.5px; color:var(--t-muted)}
+@media print{.sai-modal{display:none!important}}
+
+/* ---------- 紫微三维盘：容器与信息卡随主题 ---------- */
+html[data-page="ziwei"] #chart3dWrap{
+  background:radial-gradient(ellipse at center,
+    var(--t-surface) 0%, var(--t-surface-2) 68%, var(--t-bg-2) 100%);
+}
+html[data-page="ziwei"] #info3d{
+  background:var(--t-surface); color:var(--t-fg);
+  border-color:var(--t-line-soft); box-shadow:var(--t-shadow-pop);
+}
+html[data-page="ziwei"] #info3d h2{color:var(--t-fg-2)}
+html[data-page="ziwei"] #info3d .k{color:var(--t-muted)}
+html[data-page="ziwei"] #info3d .big{color:var(--t-accent)}
+html[data-page="ziwei"] #hint3d{color:var(--t-muted)}
+html[data-page="ziwei"] #btnInfo3d{
+  background:var(--t-surface); color:var(--t-fg-2);
+  border:1px solid var(--t-line-soft); border-radius:var(--t-radius-s);
+}
+html[data-page="ziwei"] #btnInfo3d:hover{border-color:var(--t-accent); color:var(--t-fg)}

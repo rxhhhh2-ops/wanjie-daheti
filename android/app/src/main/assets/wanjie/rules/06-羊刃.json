@@ -1,0 +1,583 @@
+{
+  "schema_version": "1.0",
+  "category_id": "YR",
+  "category": "羊刃",
+  "source_work": "三命通会（知命书院转录本·未经影印本校对）",
+  "generated": "2026-10-28",
+  "description": "羊刃起法、真刃飞刃、刃头财/鬼、阳刃分类与岁运喜忌。",
+  "levels": {
+    "原文": "转录本有明确文字表述",
+    "通行-需注": "古籍未明言或文字残缺，按通行惯例补全，输出须注明",
+    "推定": "由原文表格/定义推导，非原文逐字",
+    "待核": "转录矛盾/形近讹误，未核对影印本，禁止加载"
+  },
+  "gates": "engine.loadable=false 的规则不得被排盘引擎加载；待核项须先完成校勘。",
+  "count": 17,
+  "rules": [
+    {
+      "id": "YR-001",
+      "title": "羊刃名义",
+      "rule": "羊刃常居禄前一辰：禄过则刃生，功成当退不退则过，故名刃。",
+      "when": [
+        "已知十干禄位"
+      ],
+      "then": [
+        "禄位顺数一辰为羊刃"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.20",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "禄过则刃生；功成当退不退则过",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      }
+    },
+    {
+      "id": "YR-002",
+      "title": "十干羊刃正位与飞刃",
+      "rule": "羊刃正位：甲卯、乙辰、丙午、丁未、庚酉、辛戌、壬子、癸丑；对冲为飞刃（甲酉、乙戌、丙子、丁丑、庚卯、辛辰、壬午、癸未）。原文独缺戊己，通行补戊午、己未（待核）。",
+      "when": [
+        "已知日干"
+      ],
+      "then": [
+        "查表取羊刃与飞刃"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.20",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "甲则刃在卯……乙在辰，丙在午，丁在未，庚在酉，辛在戌，壬在子，癸在丑；对冲为飞刃",
+        "quote_type": "原文（戊己为通行补）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "must"
+      },
+      "data": {
+        "甲": {
+          "羊刃": "卯",
+          "飞刃": "酉"
+        },
+        "乙": {
+          "羊刃": "辰",
+          "飞刃": "戌"
+        },
+        "丙": {
+          "羊刃": "午",
+          "飞刃": "子"
+        },
+        "丁": {
+          "羊刃": "未",
+          "飞刃": "丑"
+        },
+        "戊": {
+          "羊刃": "午",
+          "飞刃": "子",
+          "note": "通行补，原文缺"
+        },
+        "己": {
+          "羊刃": "未",
+          "飞刃": "丑",
+          "note": "通行补，原文缺"
+        },
+        "庚": {
+          "羊刃": "酉",
+          "飞刃": "卯"
+        },
+        "辛": {
+          "羊刃": "戌",
+          "飞刃": "辰"
+        },
+        "壬": {
+          "羊刃": "子",
+          "飞刃": "午"
+        },
+        "癸": {
+          "羊刃": "丑",
+          "飞刃": "未"
+        }
+      },
+      "notes": "笔记明确标注『十干正位独缺戊、己』[待核]；戊午/己未为通行补法，输出须注明来源等级。"
+    },
+    {
+      "id": "YR-003",
+      "title": "刃后一辰为禄",
+      "rule": "羊刃后一辰为禄（刃与禄相邻，禄前一位即刃）。",
+      "when": [
+        "已知羊刃位"
+      ],
+      "then": [
+        "逆数一辰为禄位，用于校验"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#028 论羊刃",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "刃后一辰为禄",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      }
+    },
+    {
+      "id": "YR-004",
+      "title": "羊刃带禄官印为吉",
+      "rule": "羊刃带禄、更有官印相资，则作吉论：『羊刃重重又见禄，富贵饶金玉』『官、印相助福相资』。",
+      "when": [
+        "命带羊刃且见禄/官/印"
+      ],
+      "then": [
+        "作吉论，主富贵"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.75",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "羊刃重重又见禄，富贵饶金玉；官、印相助福相资",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-005",
+      "title": "专羊刃凶性",
+      "rule": "专羊刃（无官印禄制）则眼露性急、凶暴害物、亲近恶党；生旺稍可，死绝尤甚；在五行败者逢之多患瘰疠、瘴疠、金刃之灾，不论贵贱多冗杂劳迫。",
+      "when": [
+        "羊刃无制"
+      ],
+      "then": [
+        "按专刃论凶，主性急、灾病、劳迫"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#028 论羊刃",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "专羊刃则眼露性急、凶暴害物",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-006",
+      "title": "真羊刃",
+      "rule": "六甲生人逢乙卯、丁卯为真羊刃；重犯主残疾、官禄失退散在晚年；其余卯为偏刃则轻。",
+      "when": [
+        "甲日见乙卯或丁卯"
+      ],
+      "then": [
+        "按真羊刃论重；余卯为偏刃轻"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#028 论羊刃",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "六甲生人逢乙卯、丁卯则为真羊刃",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-007",
+      "title": "刃头财与刃头鬼",
+      "rule": "刃头财：甲人见己卯（销煞），主财帛歇灭，常人以屠沽刀锯为业，或因盗致命；刃头鬼：甲人见辛卯（持刃煞），主不令终，虽入贵格亦不可测，甲乙人见之尤紧，多脑疽发背而终。",
+      "when": [
+        "羊刃之上见财/见鬼"
+      ],
+      "then": [
+        "刃头财主财灭；刃头鬼主凶终"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.76",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "甲人见己卯则为刃头财（销煞）……甲人见辛卯则为刃头鬼（持刃煞）",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-008",
+      "title": "羊刃相蚀",
+      "rule": "羊刃相蚀（甲寅虎、兔、甲戊狗兔之类），见所蚀年月稍可，日时至危；见两重更值空亡，则犯流配至老、不善终。",
+      "when": [
+        "两刃相蚀"
+      ],
+      "then": [
+        "按蚀刃论凶，日时尤重"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#028 论羊刃",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "羊刃相蚀……见两重更值空亡，则犯流配至老、不善终",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "待核",
+      "status": "需校勘",
+      "engine": {
+        "loadable": false,
+        "priority": "optional"
+      },
+      "notes": "原文例句『甲寅虎、兔、甲戊狗兔之类』文字残乱；2026-10-28 与劝学网本互校：两本同残，非单本讹字，须影印本方能复原。"
+    },
+    {
+      "id": "YR-009",
+      "title": "连珠刃",
+      "rule": "连珠刃十日：庚戌、辛酉、戊午、己未、丙午、丁未、甲辰、乙卯、壬子、癸丑，皆凶；金紧木慢，女命犯之定克夫害子、不贞洁。",
+      "when": [
+        "日柱为连珠刃十日之一"
+      ],
+      "then": [
+        "按凶论；女命另加克夫害子"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#R3.77",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "连珠刃（庚戌、辛酉、戊午、己未、丙午、丁未、甲辰、乙卯、壬子、癸丑）则皆凶象",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": [
+        "庚戌",
+        "辛酉",
+        "戊午",
+        "己未",
+        "丙午",
+        "丁未",
+        "甲辰",
+        "乙卯",
+        "壬子",
+        "癸丑"
+      ]
+    },
+    {
+      "id": "YR-010",
+      "title": "行运最怕羊刃",
+      "rule": "行运最怕羊刃：运临羊刃则作事稽迟、财物耗散。",
+      "when": [
+        "大运/流年临羊刃"
+      ],
+      "then": [
+        "主事迟、财散"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#028 论羊刃",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "运行羊刃，财物耗散",
+        "quote_type": "原文",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": true
+        }
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-011",
+      "title": "五阳有刃、五阴无刃",
+      "rule": "依子平说：五阳干（甲丙戊庚壬）有刃，五阴干（乙丁己辛癸）无刃、惟见伤官，则与羊刃同祸；此『阳』指阴阳之阳，非牛羊之羊。",
+      "when": [
+        "判定阴干羊刃"
+      ],
+      "then": [
+        "阳干按羊刃表；阴干按伤官同祸论，不列羊刃"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/精读-卷三至卷五.md#028 论羊刃",
+        "file_no": "028",
+        "material": "materials/05-三命通会/三命通会-知命书院本/028-卷03(06).md",
+        "quote": "此指阴阳之阳，非牛羊之羊",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "notes": "与卷三前文『乙在辰、丁在未、辛在戌、癸在丑』的十干表并存，属两说；引擎按流派配置，默认保留十干表并标注子平说。"
+    },
+    {
+      "id": "YR-012",
+      "title": "阳刃三分类",
+      "rule": "阳刃三：劫财刃（甲见乙）不利财官格；护禄刃（甲见卯）大利归禄格；背禄刃（乙丙）大利去官留煞局。",
+      "when": [
+        "判定阳刃类型"
+      ],
+      "then": [
+        "按劫财/护禄/背禄分类取用"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.9",
+        "file_no": "060",
+        "material": "materials/05-三命通会/三命通会-知命书院本/060-卷06(14)（1）.md",
+        "quote": "劫财刃、护禄刃、背禄刃",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-013",
+      "title": "阳刃以时为重",
+      "rule": "劫财阳刃在时，岁运并临则灾殃立至；阳刃以时为重。阳刃冲合岁君则勃然祸至；日柱有刃而岁运再冲合则大凶，岁运只一重冲合则祸减半。",
+      "when": [
+        "时柱见阳刃且岁运冲合"
+      ],
+      "then": [
+        "按重灾论；一重冲合减半"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.10-R6b.13",
+        "file_no": "060",
+        "material": "materials/05-三命通会/三命通会-知命书院本/060-卷06(14)（1）.md",
+        "quote": "若劫财阳刃在时，岁运并临，则灾殃立至；阳刃以时为重",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-014",
+      "title": "日刃三日",
+      "rule": "日刃三日：戊午、丙午、壬子，男妨妻女妨夫；忌刑冲破害三会六合，喜七煞相制、官印乡。",
+      "when": [
+        "日柱为戊午/丙午/壬子"
+      ],
+      "then": [
+        "按日刃论；喜煞制与官印"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.25",
+        "file_no": "060",
+        "material": "materials/05-三命通会/三命通会-知命书院本/060-卷06(14)（1）.md",
+        "quote": "日刃三日：戊午、丙午、壬子，男妨妻女妨夫",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      },
+      "data": [
+        "戊午",
+        "丙午",
+        "壬子"
+      ]
+    },
+    {
+      "id": "YR-015",
+      "title": "自刃与飞刃日",
+      "rule": "自刃：癸丑、丁丑、丁未、己未（坐下比肩刃）；飞刃：丙子、丁丑、戊子、己丑（坐下冲刃）；喜忌同日刃。",
+      "when": [
+        "日柱为自刃/飞刃日"
+      ],
+      "then": [
+        "按刃日喜忌论"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.27",
+        "file_no": "060",
+        "material": "materials/05-三命通会/三命通会-知命书院本/060-卷06(14)（1）.md",
+        "quote": "自刃癸丑丁丑丁未己未（坐下比肩刃）、飞刃丙子丁丑戊子己丑（坐下冲刃）",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      },
+      "data": {
+        "自刃": [
+          "癸丑",
+          "丁丑",
+          "丁未",
+          "己未"
+        ],
+        "飞刃": [
+          "丙子",
+          "丁丑",
+          "戊子",
+          "己丑"
+        ]
+      }
+    },
+    {
+      "id": "YR-016",
+      "title": "阳刃喜忌",
+      "rule": "阳刃喜偏官印绶，忌反吟伏吟魁罡三合；煞刃互喜，两凶相制。煞刃俱全而身旺无伤官则贵；有刃有印无煞而岁运逢煞则反成厚福。",
+      "when": [
+        "命带阳刃"
+      ],
+      "then": [
+        "按喜偏官印绶、忌反吟伏吟魁罡三合论"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.22-R6b.23",
+        "file_no": "060",
+        "material": "materials/05-三命通会/三命通会-知命书院本/060-卷06(14)（1）.md",
+        "quote": "阳刃，则喜偏官印绶、忌反吟伏吟魁罡三合；煞刃互喜，两凶相制",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "should"
+      }
+    },
+    {
+      "id": "YR-017",
+      "title": "阳刃位置断",
+      "rule": "阳刃在年则破祖基、施恩反怨；在时则克妻子、晚无结果；四柱再逢则手足灾疾。",
+      "when": [
+        "阳刃落于年/时柱或重见"
+      ],
+      "then": [
+        "按柱位断六亲与晚运"
+      ],
+      "source": {
+        "note": "knowledge/06-四柱/精读笔记/补读-卷六末至卷七（060-067）.md#R6b.28",
+        "file_no": "060",
+        "material": "materials/05-三命通会/三命通会-知命书院本/060-卷06(14)（1）.md",
+        "quote": "若阳刃在年，则破祖基、施恩反怨；在时，则克妻子、晚无结果",
+        "quote_type": "笔记规范化/摘要（未逐字命中）",
+        "verification": {
+          "method": "程序化回查原材料",
+          "hit": false
+        },
+        "quote_type_original": "原文"
+      },
+      "level": "原文",
+      "status": "可编码",
+      "engine": {
+        "loadable": true,
+        "priority": "optional"
+      }
+    }
+  ]
+}

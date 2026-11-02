@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'com.wanjie.heti'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.wanjie.heti"
+        minSdk 24
+        targetSdk 35
+        versionCode 2
+        versionName "1.1"
+        ndk { abiFilters "arm64-v8a", "x86_64" }
+        python {
+            // Chaquopy 构建期只需要一个本机 Python 来执行 pip
+            buildPython "C:/Users/hannah/AppData/Local/Programs/Python/Python313/python.exe"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures { buildConfig true }
+}
+
+chaquopy {
+    defaultConfig {
+        version = "3.13"
+        pip {
+            // lunar_python 与 lunardate 只有 sdist，已按纯 Python 方式内置到
+            // app/src/main/python（与网页版 requirements.txt 的 1.4.8 / 0.3.0 同源）。
+            // ephem 使用 Chaquopy 官方 Android 轮子 4.1.6（API 与 4.2.1 一致，仅用于节气校验）。
+            install "ephem==4.1.6"
+        }
+    }
+}

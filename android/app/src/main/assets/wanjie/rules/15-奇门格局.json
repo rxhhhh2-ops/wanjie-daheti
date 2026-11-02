@@ -1,0 +1,582 @@
+{
+ "meta": {
+  "name": "奇门遁甲·格局规则库",
+  "version": "2026-10-29",
+  "source": "宝鉴释义四十四则术语表（精读笔记附录A/B）、统宗四十格、演义卷二、笺元歌诀、法窍专论",
+  "note": "detect 为可执行判定；detect=null 者为原文断辞名目（留档、供提示，不自动判）。pai 表示流派；level 为规则分级。",
+  "levels": [
+   "[原文]",
+   "[通行]",
+   "[待核]"
+  ]
+ },
+ "ge_ju": [
+  {
+   "id": "qinglong_fanshou",
+   "name": "青龙返首",
+   "alias": [
+    "龙回首"
+   ],
+   "type": "吉",
+   "compose": "天盘旬首仪（甲）加地盘丙",
+   "detect": {
+    "kind": "tian_xunyi_di_gan",
+    "tian": "XUNYI",
+    "di": "丙"
+   },
+   "source": "宝鉴005/009/013；演义卷二",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "feiniao_diexue",
+   "name": "飞鸟跌穴",
+   "alias": [
+    "鸟跌穴"
+   ],
+   "type": "吉",
+   "compose": "天盘丙加地盘旬首仪（甲）",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "丙",
+    "di": "XUNYI"
+   },
+   "source": "宝鉴005/009/013；演义卷二",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "jimen_he_sanqi",
+   "name": "吉门合三奇",
+   "type": "吉",
+   "compose": "三奇与三吉门（开休生）同宫",
+   "detect": {
+    "kind": "qi_with_door",
+    "doors": [
+     "开门",
+     "休门",
+     "生门"
+    ]
+   },
+   "source": "笺元002“吉门偶尔合三奇…更合从傍加检点余宫不可有微疵”",
+   "level": "[原文]",
+   "pai": "通行",
+   "alias": [
+    "奇门相合"
+   ]
+  },
+  {
+   "id": "sanqi_deshi",
+   "name": "三奇得使",
+   "type": "吉",
+   "compose": "乙逢犬马、丙逢鼠猴、六丁玉女骑龙虎（得使配支，诸家异说）",
+   "detect": null,
+   "source": "笺元002；宝鉴005“三吉门直使＋三奇”",
+   "level": "[原文]",
+   "pai": "得使配支异说多，暂不自动判"
+  },
+  {
+   "id": "yunv_shoumen",
+   "name": "玉女守门",
+   "type": "吉",
+   "compose": "地盘六丁守直使之门",
+   "detect": {
+    "kind": "di_gan_at_zhishi",
+    "gan": "丁"
+   },
+   "source": "宝鉴005“玉女守门者，地盘六丁守直使之门也”；笺元003",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "tiandun",
+   "name": "天遁",
+   "type": "吉",
+   "compose": "生门＋丙＋地下丁",
+   "detect": {
+    "kind": "door_qi_di",
+    "door": "生门",
+    "qi": "丙",
+    "di": "丁"
+   },
+   "source": "符应经卷中；演义010/012；法窍622；笺元005",
+   "level": "[原文]",
+   "pai": "主流（另有丙＋生＋戊说）"
+  },
+  {
+   "id": "didun",
+   "name": "地遁",
+   "type": "吉",
+   "compose": "开门＋乙＋地下己",
+   "detect": {
+    "kind": "door_qi_di",
+    "door": "开门",
+    "qi": "乙",
+    "di": "己"
+   },
+   "source": "符应经卷中；演义010/012；法窍622；笺元005",
+   "level": "[原文]",
+   "pai": "主流"
+  },
+  {
+   "id": "rendun",
+   "name": "人遁",
+   "type": "吉",
+   "compose": "休门＋丁＋太阴",
+   "detect": {
+    "kind": "door_qi_shen",
+    "door": "休门",
+    "qi": "丁",
+    "shen": "太阴"
+   },
+   "source": "符应经卷中；演义010/012；法窍622；笺元005",
+   "level": "[原文]",
+   "pai": "主流"
+  },
+  {
+   "id": "tianfu_shi",
+   "name": "天辅时",
+   "type": "吉",
+   "compose": "六甲时（时柱为甲子…甲寅）",
+   "detect": {
+    "kind": "hour_gan",
+    "gan": "甲"
+   },
+   "source": "宝鉴005/006/009",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "wuhe_shi",
+   "name": "五合时",
+   "type": "吉",
+   "compose": "时干与日干相合（甲己/乙庚/丙辛/丁壬/戊癸）",
+   "detect": {
+    "kind": "hour_day_he"
+   },
+   "source": "宝鉴006",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "qinglong_taozou",
+   "name": "青龙逃走",
+   "type": "凶",
+   "compose": "天盘乙加地盘辛",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "乙",
+    "di": "辛"
+   },
+   "source": "演义卷二；宝鉴005/010/014",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "baihu_changkuang",
+   "name": "白虎猖狂",
+   "type": "凶",
+   "compose": "天盘辛加地盘乙",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "辛",
+    "di": "乙"
+   },
+   "source": "演义卷二；宝鉴005/010/014",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "zhuque_toujiang",
+   "name": "朱雀投江",
+   "alias": [
+    "朱雀入江"
+   ],
+   "type": "凶",
+   "compose": "天盘丁加地盘癸",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "丁",
+    "di": "癸"
+   },
+   "source": "演义卷二；宝鉴005/010/014",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "tengshe_yaojiao",
+   "name": "螣蛇夭矫",
+   "alias": [
+    "螣蛇跃蹻"
+   ],
+   "type": "凶",
+   "compose": "天盘癸加地盘丁",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "癸",
+    "di": "丁"
+   },
+   "source": "演义卷二；宝鉴005/010/014",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "taibai_ruying",
+   "name": "太白入荧",
+   "alias": [
+    "白入荧"
+   ],
+   "type": "凶",
+   "compose": "天盘庚加地盘丙",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "庚",
+    "di": "丙"
+   },
+   "source": "宝鉴010/014；笺元005",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "ying_ru_taibai",
+   "name": "荧入太白",
+   "alias": [
+    "荧入白"
+   ],
+   "type": "凶",
+   "compose": "天盘丙加地盘庚",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "丙",
+    "di": "庚"
+   },
+   "source": "宝鉴010/014；笺元005",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "dage",
+   "name": "大格",
+   "type": "凶",
+   "compose": "天盘庚加地盘癸",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "庚",
+    "di": "癸"
+   },
+   "source": "宝鉴005/007/010；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "xingge",
+   "name": "刑格",
+   "type": "凶",
+   "compose": "天盘庚加地盘己",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "庚",
+    "di": "己"
+   },
+   "source": "宝鉴005/007/010；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "shangge",
+   "name": "上格",
+   "alias": [
+    "小格"
+   ],
+   "type": "凶",
+   "compose": "天盘庚加地盘壬",
+   "detect": {
+    "kind": "tian_di_pair",
+    "tian": "庚",
+    "di": "壬"
+   },
+   "source": "宝鉴010/012；演义007",
+   "level": "[原文]",
+   "pai": "通行（小格/上格异名）"
+  },
+  {
+   "id": "fugan_ge",
+   "name": "伏干格",
+   "type": "凶",
+   "compose": "天盘庚临日干",
+   "detect": {
+    "kind": "tian_gan_at_day"
+   },
+   "source": "宝鉴010/012/014；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "feigan_ge",
+   "name": "飞干格",
+   "type": "凶",
+   "compose": "日干临天盘庚",
+   "detect": {
+    "kind": "day_gan_at_tian"
+   },
+   "source": "宝鉴010/012/014；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "fugong_ge",
+   "name": "伏宫格",
+   "alias": [
+    "天乙伏宫"
+   ],
+   "type": "凶",
+   "compose": "天盘庚临值符（旬首仪）宫",
+   "detect": {
+    "kind": "tian_gan_at_zhifu"
+   },
+   "source": "宝鉴010/012/014；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "feigong_ge",
+   "name": "飞宫格",
+   "alias": [
+    "天乙飞宫"
+   ],
+   "type": "凶",
+   "compose": "值符临天盘庚",
+   "detect": {
+    "kind": "zhifu_at_tian_gan"
+   },
+   "source": "宝鉴010/012/014；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "suige",
+   "name": "岁格",
+   "type": "凶",
+   "compose": "天盘庚加年干",
+   "detect": {
+    "kind": "tian_gan_at_year"
+   },
+   "source": "演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "yuege",
+   "name": "月格",
+   "type": "凶",
+   "compose": "天盘庚加月干",
+   "detect": {
+    "kind": "tian_gan_at_month"
+   },
+   "source": "演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "rige",
+   "name": "日格",
+   "type": "凶",
+   "compose": "天盘庚加日干",
+   "detect": {
+    "kind": "tian_gan_at_day"
+   },
+   "source": "演义007",
+   "level": "[原文]",
+   "pai": "通行（与伏干格同构）"
+  },
+  {
+   "id": "shige",
+   "name": "时格",
+   "alias": [
+    "伏吟格"
+   ],
+   "type": "凶",
+   "compose": "天盘庚加时干",
+   "detect": {
+    "kind": "tian_gan_at_hour"
+   },
+   "source": "演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "boge",
+   "name": "勃格",
+   "alias": [
+    "勃"
+   ],
+   "type": "凶",
+   "compose": "丙加庚（及丙加年月日时干诸说）",
+   "detect": null,
+   "source": "宝鉴005/007/010/012；演义007",
+   "level": "[原文]",
+   "pai": "异说多，暂不自动判"
+  },
+  {
+   "id": "sanqi_rumu",
+   "name": "三奇入墓",
+   "type": "凶",
+   "compose": "乙临坤二、丙丁临乾六（主流）；法窍/旨归另作乙坤、丙乾、丁艮",
+   "detect": {
+    "kind": "qi_mu"
+   },
+   "source": "宝鉴005/009；笺元004；法窍901；旨归419",
+   "level": "[原文]",
+   "pai": "主流（丁墓异说见配置 ding_mu）"
+  },
+  {
+   "id": "shigan_rumu",
+   "name": "时干入墓",
+   "type": "凶",
+   "compose": "时干与时支组合入墓（主流五时：戊戌壬辰丙戌癸未丁丑）",
+   "detect": {
+    "kind": "shigan_mu"
+   },
+   "source": "宝鉴005/009/012；笺元004；旨归421",
+   "level": "[原文]",
+   "pai": "主流（宝鉴改法见配置 shigan_mu）"
+  },
+  {
+   "id": "liuyi_jixing",
+   "name": "六仪击刑",
+   "type": "凶",
+   "compose": "甲子戊三宫、甲戌己二宫、甲申庚八宫、甲午辛九宫、甲辰壬四宫、甲寅癸四宫",
+   "detect": {
+    "kind": "yi_jixing"
+   },
+   "source": "宝鉴005/009/012；旨归417；法窍578",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "menpo",
+   "name": "门迫",
+   "type": "凶",
+   "compose": "门制其宫（门克宫）",
+   "detect": {
+    "kind": "door_ke_gong"
+   },
+   "source": "笺元007；宝鉴005；法窍690",
+   "level": "[原文]",
+   "pai": "门制其宫（异说见配置 menpo）"
+  },
+  {
+   "id": "fuyin",
+   "name": "伏吟",
+   "type": "凶",
+   "compose": "九星或八门各归本宫",
+   "detect": {
+    "kind": "fuyin"
+   },
+   "source": "演义008；宝鉴005",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "fanyin",
+   "name": "反吟",
+   "type": "凶",
+   "compose": "九星或八门加对冲宫",
+   "detect": {
+    "kind": "fanyin"
+   },
+   "source": "演义008；宝鉴005",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "tianwang",
+   "name": "天网四张",
+   "type": "凶",
+   "compose": "时干为癸（六癸时）；高低按六癸所临宫",
+   "detect": {
+    "kind": "hour_gan",
+    "gan": "癸"
+   },
+   "source": "笺元008；宝鉴006/011/014",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "wubuyu",
+   "name": "五不遇时",
+   "type": "凶",
+   "compose": "时干克日干",
+   "detect": {
+    "kind": "hour_ke_day"
+   },
+   "source": "演义007；宝鉴005/009/012",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "sanqi_shouzhi",
+   "name": "三奇受制",
+   "type": "凶",
+   "compose": "乙临六七宫、丙丁临一宫",
+   "detect": {
+    "kind": "qi_shouzhi"
+   },
+   "source": "宝鉴005；演义007",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "sanqi_youyi",
+   "name": "三奇游六仪",
+   "type": "吉",
+   "compose": "当旬直符加奇，奇游对侧之仪",
+   "detect": null,
+   "source": "宝鉴005/009；笺元003",
+   "level": "[原文]",
+   "pai": "需旬首上下文，暂不自动判"
+  },
+  {
+   "id": "sanzha",
+   "name": "三诈（真/重/休诈）",
+   "type": "吉",
+   "compose": "三吉门＋三奇＋阴神（太阴/六合/九地）",
+   "detect": {
+    "kind": "zha"
+   },
+   "source": "演义006；笺元004",
+   "level": "[原文]",
+   "pai": "通行"
+  },
+  {
+   "id": "wujia",
+   "name": "五假",
+   "type": "吉",
+   "compose": "地假/天假/神假/人假/鬼假（各有门奇神组合）",
+   "detect": null,
+   "source": "演义006；笺元004",
+   "level": "[原文]",
+   "pai": "组合异说多，暂不自动判"
+  },
+  {
+   "id": "sansheng",
+   "name": "三胜宫",
+   "type": "吉",
+   "compose": "天乙、九天、生门三宫（兵占）",
+   "detect": null,
+   "source": "演义006；宝鉴002/015",
+   "level": "[原文]",
+   "pai": "仅标名"
+  },
+  {
+   "id": "wubuji",
+   "name": "五不击",
+   "type": "凶",
+   "compose": "五不击之方（兵占）",
+   "detect": null,
+   "source": "演义006；宝鉴002/015",
+   "level": "[原文]",
+   "pai": "仅标名"
+  }
+ ]
+}
